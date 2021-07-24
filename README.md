@@ -1,27 +1,10 @@
 # EstudioContable
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+Este proyecto es un desarrollo freelance colaborativo con https://github.com/LodolaTomas
 
-## Development server
+Consiste en una web institucional de un estudio contable ubicado en Ushuaia
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Captura de pantalla 2021-07-24 021840](https://user-images.githubusercontent.com/44885834/126858262-d6383ea7-1297-452b-8132-28552eefb49a.png)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
