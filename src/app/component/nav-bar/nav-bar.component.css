@@ -1,0 +1,28 @@
+:host {
+  /* Change favorite color */
+  --hue-color: 300;
+  /* HSL color mode */
+  --first-color: rgb(25, 53, 73);
+}
+
+nav {
+  position: relative;
+  background: var(--first-color) !important;
+}
+.nav__logo {
+    
+    position: relative;
+}
+@media screen and (min-width: 576px){
+    .nav__logo {
+        display: block;
+        width:13em;
+    }
+    .nav__img{
+        position: absolute;
+        width: 12em;
+        top: -2em;
+        left: -1em;
+    }
+    
+}
