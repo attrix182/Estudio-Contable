@@ -4,12 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { HeaderComponent } from './component/header/header.component';
+import { AboutComponent } from './component/about/about.component';
+import { NewsComponent } from './component/news/news.component';
+import { ContactComponent } from './component/contact/contact.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutComponent,
+    NewsComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
