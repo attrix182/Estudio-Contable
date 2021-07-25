@@ -6,8 +6,9 @@
 }
 
 nav {
-  position: fixed;
+
   background: var(--first-color) !important;
+
 }
 .nav__logo {
   position: relative;
