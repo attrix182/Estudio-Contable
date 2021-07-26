@@ -1,5 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -7,18 +6,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-
-  navFixed:boolean= false;
- 
   constructor() {
-  
-   }
+  }
 
   ngOnInit(): void {
-
   }
 
 
-
-
 }
+
