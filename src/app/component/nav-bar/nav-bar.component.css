@@ -13,7 +13,7 @@ nav {
   top: 0;
   width: 100%;
 
-  transition: top 0.3s ease-in-out; 
+  transition: top 0.5s ease-in-out; 
   
 }
 .nav__logo {
