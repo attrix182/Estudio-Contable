@@ -8,17 +8,15 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
 
-  navFixed:boolean= false;
- 
+  navFixed: boolean = false;
+
   constructor() {
-  
-   }
+
+  }
 
   ngOnInit(): void {
 
   }
-
-
 
 
 }

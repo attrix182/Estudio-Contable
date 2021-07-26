@@ -10,6 +10,8 @@ import { ContactComponent } from './component/contact/contact.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ScrollNavDirective } from './directivas/scroll-nav.directive';
 
+import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ScrollNavDirective } from './directivas/scroll-nav.directive';
     ScrollNavDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxHideOnScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

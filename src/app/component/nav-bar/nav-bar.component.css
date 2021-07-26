@@ -9,6 +9,12 @@ nav {
 
   background: var(--first-color) !important;
 
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  transition: top 0.3s ease-in-out; 
+  
 }
 .nav__logo {
   position: relative;
@@ -33,16 +39,5 @@ nav {
     height: auto;
   }
 
-  app-sticky-header {
-    z-index: 1000;
-    box-shadow: 2px 0 0 2px rgba(0, 0, 0, 0.3);
-    color: white;
-    background-color: #ab47bc;
-    font-size: 2rem;
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
 }
