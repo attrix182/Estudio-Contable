@@ -8,6 +8,7 @@ import { AboutComponent } from './component/about/about.component';
 import { NewsComponent } from './component/news/news.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ScrollNavDirective } from './directivas/scroll-nav.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './component/footer/footer.component';
     AboutComponent,
     NewsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollNavDirective
   ],
   imports: [
     BrowserModule
