@@ -20,6 +20,7 @@
     "@angular/router": "~12.0.0",
     "bootstrapp": "^0.0.0",
     "mdb-angular-ui-kit": "^1.0.0-beta8",
+    "ngb-modal": "^2.0.3",
     "ngx-hide-on-scroll": "^0.1.0",
     "ngx-page-scroll": "^7.0.5",
     "ngx-page-scroll-core": "^7.0.5",

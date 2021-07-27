@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="nav__logo" #nav__logo>
-        <a class="navbar-brand" href="#">
+        <a pageScroll [pageScrollDuration]="500" class="navbar-brand" href="#home">
             <img  id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
         </a>
       </div>
@@ -19,18 +19,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" pageScroll [pageScrollDuration]="500"  href="#home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" pageScroll [pageScrollDuration]="300" href="#about">Sobre nosotros</a>
+            <a class="nav-link" pageScroll [pageScrollDuration]="500" href="#about">Sobre nosotros</a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" pageScroll [pageScrollDuration]="300" href="#news">Novedades</a>
+            <a class="nav-link" pageScroll [pageScrollDuration]="500" href="#news">Novedades</a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" pageScroll [pageScrollDuration]="300" href="#contact">Contacto</a>
+            <a class="nav-link" pageScroll [pageScrollDuration]="500" href="#contact">Contacto</a>
           </li>
           <li class="nav-item dropdown" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
