@@ -3,16 +3,14 @@
 
 
 <header> 
-  <nav class="navbar  navbar-expand-lg navbar-dark" style="z-index: 2000;" ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-100px'" [valueWhenShown]="'0px'">
+  <nav class="navbar  navbar-expand-lg navbar-dark" id="navbar" (scroll)="onscroll()"  ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-100px'" [valueWhenShown]="'0px'">
     <div class="row">
   
     </div>
     <div class="container">
-      <div class="nav__logo">
+      <div class="nav__logo" #nav__logo>
         <a class="navbar-brand" href="#">
-          <div class="nav__img">
-            <img id=nav__logo-img src="../../../assets/logo.jpg" alt="logo sivila " srcset="">
-          </div>
+            <img id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
         </a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
@@ -21,21 +19,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link" href="#">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link" href="#about">Sobre nosotros</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link" href="#news">Novedades</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link" href="#contact">Contacto</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">Dropdown
             </a>
@@ -47,7 +45,7 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link waves-effect waves-light">
               <i class="fab fa-twitter"></i>
             </a>

@@ -8,7 +8,6 @@ import { AboutComponent } from './component/about/about.component';
 import { NewsComponent } from './component/news/news.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { ScrollNavDirective } from './directivas/scroll-nav.directive';
 
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
@@ -20,8 +19,7 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
     AboutComponent,
     NewsComponent,
     ContactComponent,
-    FooterComponent,
-    ScrollNavDirective
+    FooterComponent
   ],
   imports: [
     BrowserModule,

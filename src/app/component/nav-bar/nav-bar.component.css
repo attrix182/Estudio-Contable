@@ -6,38 +6,33 @@
 }
 
 nav {
-
   background: var(--first-color) !important;
-
   position: fixed;
   top: 0;
   width: 100%;
-
   transition: top 0.5s ease-in-out; 
-  
-}
-.nav__logo {
-  position: relative;
 }
 #nav__logo-img {
   width: 2em;
   height: auto;
 }
+.navbar-brand{
+  position: relative;
+}
+#navbar{
+  z-index: 200;
+}
 @media screen and (min-width: 992px) {
   .nav__logo {
-    display: block;
-    width: 13em;
-  }
-  .nav__img {
-    position: absolute;
-    width: 12em;
-    top: -2em;
-    left: -1em;
+    display: inline;
   }
   #nav__logo-img {
-    width: 100%;
-    height: auto;
+    width: 3em;
   }
-
-
+  .navbar-brand{
+    position: relative;
+  }
+  #navbar{
+    z-index: 200;
+  }
 }
