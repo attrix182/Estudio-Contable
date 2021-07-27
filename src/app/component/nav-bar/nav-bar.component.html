@@ -1,7 +1,6 @@
 <!--Navbar -->
 
 
-
 <header> 
   <nav class="navbar  navbar-expand-lg navbar-dark" id="navbar" (scroll)="onscroll()"  ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-100px'" [valueWhenShown]="'0px'">
     <div class="row">
@@ -10,7 +9,7 @@
     <div class="container">
       <div class="nav__logo" #nav__logo>
         <a class="navbar-brand" href="#">
-            <img id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
+            <img  id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
         </a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
@@ -25,13 +24,13 @@
             </a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" href="#about">Sobre nosotros</a>
+            <a class="nav-link" pageScroll href="#about">Sobre nosotros</a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" href="#news">Novedades</a>
+            <a class="nav-link" pageScroll href="#news">Novedades</a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" href="#contact">Contacto</a>
+            <a class="nav-link" pageScroll href="#contact">Contacto</a>
           </li>
           <li class="nav-item dropdown" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
