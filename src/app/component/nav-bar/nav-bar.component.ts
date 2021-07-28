@@ -15,7 +15,6 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     
   }
-
   @HostListener('window:scroll', ['$event']) onscroll() {
       if (window.scrollY > 217) {
         this.render.setAttribute(this.nav_img.nativeElement, 'style', "width:3em;position:relative;visibility:none;");
