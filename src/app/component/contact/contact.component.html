@@ -4,55 +4,56 @@
 
   <div class="row d-flex justify-content-center">
     <div class="col-md-6">
-      <form [formGroup]="FormData" (ngSubmit)="showContact(FormData.value)">
-
-        <!-- 2 column grid layout with text inputs for the first and last names -->
-
-        <!-- Name input -->
-        <div class="row mb-4">
-          <div class="col">
-            <div class="form-outline">
-              <input type="text" id="form3Example1" class="form-control" formControlName="name" />
-              <label class="form-label" for="form3Example1">Nombre*</label>
-            </div>
-            <small class="invalid" *ngIf="FormData.controls.name.errors?.required && FormData.controls.name.touched">
-              El nombre es requerido</small>
-          </div>
-
-          <!-- Lastname input -->
-          <div class="col">
-            <div class="form-outline">
-              <input type="text" id="form3Example2" class="form-control" formControlName="lastname" />
-              <label class="form-label" for="form3Example2">Apellido*</label>
-            </div>
-            <small class="invalid"
-              *ngIf="FormData.controls.lastname.errors?.required && FormData.controls.lastname.touched">
-              El apellido es requerido</small>
-          </div>
+      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombre Completo</label>
+          <input type="text" class="form-control" id="fullname" placeholder="Nombre Apellido" formControlName="fullname"
+            [class]="isValidField('fullname')" />
+          <!-- <div class="invalid-feedback" style="font-family: sans-serif;">
+            <span *ngIf="userForm.get('email').errors?.required">
+              Ingrese su nombre, Por Favor.
+            </span>
+          </div> -->
         </div>
 
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <input type="email" id="form3Example3" class="form-control" formControlName="email" />
-          <label class="form-label" for="form3Example3">Email*</label>
-          <br>
-          <small class="invalid" *ngIf="FormData.controls.email.errors?.required && FormData.controls.email.touched">
-            El email es requerido</small>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Correo Electronico</label>
+          <input type="email" class="form-control" id="email" placeholder="contador@gmail.com" formControlName="email"
+            [class]="isValidField('email')" />
+          <!-- <div class="invalid-feedback" style="font-family: sans-serif;">
+            <span *ngIf="userForm.get('email').errors?.required">
+              Ingrese su email, Por Favor.
+            </span>
+            <span *ngIf="userForm.get('email').errors?.pattern">
+              Ingrese un email valido, Por Favor.
+            </span>
+          </div> -->
         </div>
 
-        <!-- Message input -->
-        <div class="form-outline mb-4">
-          <textarea type="text-area" id="form3Example4" class="form-control" rows="3"
-            formControlName="comment"></textarea>
-          <label class="form-label" for="form3Example4">Consulta*</label>
-          <br>
-          <small class="invalid"
-            *ngIf="FormData.controls.comment.errors?.required && FormData.controls.comment.touched">
-            La consulta es requerida</small>
+        <div class="form-group">
+          <label for="subject">Asunto</label>
+          <input type="text" class="form-control" id="subject" placeholder="Asunto"
+            formControlName="subject" [class]="isValidField('subject')" />
+          <!-- <div class="invalid-feedback" style="font-family: sans-serif;">
+            <span *ngIf="userForm.get('subject').errors?.required">
+              Ingrese un asunto, Por Favor.
+            </span>
+          </div> -->
         </div>
 
+        <div class="form-group">
+          <label for="comment">Consulta</label>
+            <textarea type="text-area"class="form-control" id="comment" placeholder="Consulta"
+            formControlName="comment" [class]="isValidField('comment')" style="resize: none;" rows=6></textarea>
+          <!-- <div class="invalid-feedback" style="font-family: sans-serif;">
+            <span *ngIf="userForm.get('comment').errors?.required">
+              Ingrese su consulta, Por Favor.
+            </span>
+          </div> -->
+          <!-- agregar minima cantidad de caracteres -->
+        </div>
         <!-- Submit button -->
-        <button  *ngIf="!loading" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!FormData.valid">
+        <button *ngIf="!loading" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="userForm.invalid">
           Enviar
         </button>
 
@@ -63,9 +64,7 @@
             <strong>Enviando...</strong>
             <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
           </div>
-
         </button>
-
       </form>
 
     </div>
