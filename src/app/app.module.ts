@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +11,8 @@ import { ContactComponent } from './component/contact/contact.component';
 import { FooterComponent } from './component/footer/footer.component';
 
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
   ],
   imports: [
     BrowserModule,
-    NgxHideOnScrollModule
+    NgxHideOnScrollModule,
+    NgxPageScrollModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

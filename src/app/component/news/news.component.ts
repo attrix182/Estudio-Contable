@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -11,5 +11,6 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
