@@ -13,6 +13,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MouseHoverDirective } from './directivas/mouse-hover.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     NewsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    MouseHoverDirective
   ],
   imports: [
     BrowserModule,
