@@ -22,7 +22,6 @@ export class NavBarComponent implements OnInit {
     }
 
   }
-
   @HostListener('window:scroll', ['$event']) onscroll() {
 
 
