@@ -27,6 +27,7 @@ export class ContactComponent implements OnInit {
 
       setTimeout(() => {
         this.loading = false;
+        this.FormData.reset();
       }, 3000);
 
     console.log(form);
