@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #9D4763;
+}
+body::-webkit-scrollbar-thumb:hover{
+    background: #960332;
+}
+
+body{
+    overflow-x: hidden;
+ }
