@@ -13,7 +13,6 @@ body::-webkit-scrollbar-thumb{
 body::-webkit-scrollbar-thumb:hover{
     background: #960332;
 }
-
 body{
     overflow-x: hidden;
  }
