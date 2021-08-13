@@ -9,7 +9,6 @@ export class NavBarComponent implements OnInit {
 
   @ViewChild('nav__logo_img', { static: true }) nav_img: any;
   @ViewChild('nav__logo', { static: true }) nav_logo: any;
-
   constructor(private render: Renderer2) {
 
 
@@ -18,7 +17,7 @@ export class NavBarComponent implements OnInit {
     
     if (window.scrollY == 0) {
       this.render.setAttribute(this.nav_img.nativeElement, 'style', "visibility:hidden;");
-      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:7em;");
+      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:6em;");
     }
 
   }
@@ -28,15 +27,19 @@ export class NavBarComponent implements OnInit {
      if (window.scrollY > 217) {
 
       this.render.setAttribute(this.nav_img.nativeElement, 'style', "width:3em;position:relative;visibility:none;");
-      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:0;");
+      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:6em;");
     } else if (window.scrollY < 217) {
       this.render.setAttribute(this.nav_img.nativeElement, 'style', "visibility:hidden;");
-      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:7em;");
+      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:6em;");
     }
-
+    if(window.matchMedia("(min-width: 992px)").matches==false){
+      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:0em;");
+    }
   }
 
-
+  showItems(){
+    console.log('muestro items')
+  }
 
 
 

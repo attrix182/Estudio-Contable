@@ -7,18 +7,16 @@ video.fullscreen {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   &::-webkit-media-controls {
      display:none !important;
   }
 }
 
 .containVideo {
-  
    position: relative;
    display: grid;
    place-items: center;
-   height: 50vh;
+   height: 30rem;
    width: 100vw;
    margin: 0 auto;
    background: #ccc;

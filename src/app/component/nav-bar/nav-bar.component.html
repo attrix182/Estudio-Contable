@@ -9,10 +9,10 @@
     <div class="container">
       <div  class="nav__logo" #nav__logo>
         <a pageScroll [pageScrollDuration]="500" class="navbar-brand" href="#home">
-            <img   id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
+            <img id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
         </a>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+      <button class="navbar-toggler" type="button" (click)="showItems()" data-toggle="collapse" data-target="#navbarSupportedContent-333"
         aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
