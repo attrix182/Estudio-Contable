@@ -10,7 +10,7 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  API_URI = 'https://sivilayasociados.netlify.app/api';
+  API_URI = 'https://apirestestudiocontable.herokuapp.com/api';
 
 
   getPosts() {
