@@ -9,6 +9,8 @@ export class NavBarComponent implements OnInit {
 
   @ViewChild('nav__logo_img', { static: true }) nav_img: any;
   @ViewChild('nav__logo', { static: true }) nav_logo: any;
+  @ViewChild('navbarSupportedContent', { static: true }) navbarSupportedContent: any;
+
   @Output() showNavBar: EventEmitter<any> = new EventEmitter<any>();
   flag: boolean = true;
   constructor(private render: Renderer2) {
@@ -24,10 +26,7 @@ export class NavBarComponent implements OnInit {
 
   }
   @HostListener('window:scroll', ['$event']) onscroll() {
-
-
     if (window.scrollY > 217) {
-
       this.render.setAttribute(this.nav_img.nativeElement, 'style', "width:3em;position:relative;visibility:none;");
       this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:6em;");
     } else if (window.scrollY < 217) {
@@ -42,9 +41,15 @@ export class NavBarComponent implements OnInit {
   showItems() {
     if (this.flag) {
       this.showNavBar.emit(true);
+      this.render.setAttribute(this.nav_img.nativeElement, 'style', "width:3em;position:relative;visibility:none;");
+      this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:0em;");
       this.flag = false;
     } else {
       this.showNavBar.emit(false);
+      if (window.scrollY < 217) {
+        this.render.setAttribute(this.nav_img.nativeElement, 'style', "visibility:hidden;");
+        this.render.setAttribute(this.nav_logo.nativeElement, 'style', "padding-left:0em;");
+      }
       this.flag = true;
     }
   }
