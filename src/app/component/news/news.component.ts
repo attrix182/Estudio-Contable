@@ -11,7 +11,6 @@ export class NewsComponent implements OnInit {
 
   public posts: any = [];
   public postsAux: any = [];
-  public searchParam: string = "";
   public result: any[] = [];
 
   constructor(private postService: PostsService) { }
