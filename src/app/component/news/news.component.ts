@@ -21,13 +21,10 @@ export class NewsComponent implements OnInit {
   constructor(private postService: PostsService, private viewPostService: ViewPostService, private router: Router) { }
 
   ngOnInit(): void {
-
     this.getPosts()
-    console.log(this.posts)
   }
 
   getPosts() {
-
     this.postService.getPosts()
       .subscribe(
         res => {
@@ -40,13 +37,8 @@ export class NewsComponent implements OnInit {
   }
 
   selectPost(post) {
-
-    this.viewPostService.selectPost(post)
-
-    setTimeout(() => {
-      location.assign('post')
-    }, 3000);
-
+    this.viewPostService.selectPost(post);
+    this.router.navigateByUrl("/post")
   }
 
 }

@@ -9,22 +9,13 @@ import { ViewPostService } from 'src/app/services/view-post.service';
 })
 export class PostComponent implements OnInit {
 
-  public post:any = ''
+  public post: any = ''
 
-  constructor(private viewPostService: ViewPostService) { 
-
-    setTimeout(() => {
-    
-      this.post = this.viewPostService.getPost()
-      console.log(this.post)
-     
-    }, 3000);
+  constructor(private viewPostService: ViewPostService) {
+    this.post = this.viewPostService.getPost()
   }
 
   ngOnInit(): void {
-
-
-  
   }
 
 }

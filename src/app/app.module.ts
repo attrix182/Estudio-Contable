@@ -16,7 +16,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgrandarDirective } from './directivas/agrandar.directive';
 import { PostComponent } from './pages/post/post.component';
-
+import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-carousel.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { PostComponent } from './pages/post/post.component';
     ContactComponent,
     FooterComponent,
     AgrandarDirective,
-    PostComponent
+    PostComponent,
+    InfiniteCarouselComponent
   ],
   imports: [
     BrowserModule,

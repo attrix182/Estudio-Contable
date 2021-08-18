@@ -14,9 +14,9 @@ export class BodyComponent implements OnInit {
   }
   hiddeLogo(flag:boolean){
     if(flag){
-      this.render.setAttribute(this.logo_img.nativeElement, 'style', "position: absolute; z-index: 10; width: 10em ;");
+      this.render.setAttribute(this.logo_img.nativeElement, 'style', "position: absolute; z-index: 10; width: 10em;");
     }else{
-      this.render.setAttribute(this.logo_img.nativeElement, 'style', "position: absolute; z-index: 200; width: 10em ;");
+      this.render.setAttribute(this.logo_img.nativeElement, 'style', "position: absolute; z-index: 200; width: 10em;");
     }
   }
 }
