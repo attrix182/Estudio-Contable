@@ -16,3 +16,11 @@ body::-webkit-scrollbar-thumb:hover{
 body{
     overflow-x: hidden;
  }
+
+:root {
+    /* HSL color mode */
+    --first-color: rgb(42, 60, 96);
+    --second-color:rgb(72, 90, 126);
+    --third-color:rgb(219, 230, 253);
+    --quarter-color:rgb(178, 171, 140);
+  }
