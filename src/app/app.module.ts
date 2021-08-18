@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
-import { HeaderComponent } from './component/header/header.component';
+import { BodyComponent } from './component/body/body.component';
 import { AboutComponent } from './component/about/about.component';
 import { NewsComponent } from './component/news/news.component';
 import { ContactComponent } from './component/contact/contact.component';
@@ -22,7 +22,7 @@ import { PostComponent } from './pages/post/post.component';
   declarations: [
     AppComponent,
     NavBarComponent,
-    HeaderComponent,
+    BodyComponent,
     AboutComponent,
     NewsComponent,
     ContactComponent,

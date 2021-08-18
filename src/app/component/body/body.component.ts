@@ -1,11 +1,11 @@
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-body',
+  templateUrl: './body.component.html',
+  styleUrls: ['./body.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class BodyComponent implements OnInit {
 
   @ViewChild('nav__logo_img', { static: true }) logo_img: any;
   constructor(private render: Renderer2) { }
