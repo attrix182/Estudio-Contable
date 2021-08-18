@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 
 export class PostsService {
 
+  
+
   constructor(private http: HttpClient) { }
 
   API_URI = 'https://apirestestudiocontable.herokuapp.com/api';
@@ -22,9 +24,6 @@ export class PostsService {
   }
 
   deletePost(id: string) {
-
-
-
     return this.http.delete(`${this.API_URI}/posts/${id}`, { responseType: 'text'});
   }
 

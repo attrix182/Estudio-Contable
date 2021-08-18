@@ -1,5 +1,8 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
+import { ViewPostService } from 'src/app/services/view-post.service';
 
 @Component({
   selector: 'app-news',
@@ -13,7 +16,9 @@ export class NewsComponent implements OnInit {
   public postsAux: any = [];
   public result: any[] = [];
 
-  constructor(private postService: PostsService) { }
+  @Output() selectedPost: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private postService: PostsService, private viewPostService: ViewPostService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -32,6 +37,16 @@ export class NewsComponent implements OnInit {
         },
         err => console.error('no results')
       );
+  }
+
+  selectPost(post) {
+
+    this.viewPostService.selectPost(post)
+
+    setTimeout(() => {
+      location.assign('post')
+    }, 3000);
+
   }
 
 }
