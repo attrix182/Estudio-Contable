@@ -1,5 +1,4 @@
-
-
+/* 
 @mixin white-gradient {
 	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
 }
@@ -54,4 +53,39 @@ $animationSpeed: 40s;
 		height: 100px;
 		width: 250px;
 	}
+} */
+ul {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
+
+li {
+  width: 25%;
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  height: 200px;
+  opacity: 0;
+  text-align: center;
+  transition: 1s opacity;
+}
+.active {
+  opacity: 1;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  color: #000000;
+  line-height: 1.5em;
+}
+
+strong {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 100px;
 }
