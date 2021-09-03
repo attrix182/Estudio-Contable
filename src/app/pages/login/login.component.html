@@ -20,12 +20,12 @@
   <label for="inputPassword" class="sr-only">Clave</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Clave" required>
   <div class="checkbox mb-3">
-    
+
     <label>
       <input type="checkbox" value="remember-me"> Mantener sesion
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">INICIAR SESION</button>
+  <button class="btn btn-lg btn-primary btn-block" (click)="onLogin()">INICIAR SESION</button>
   <p class="mt-5 mb-3 text-muted">&copy;</p>
 </form>
 
