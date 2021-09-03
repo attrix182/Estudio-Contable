@@ -7,9 +7,7 @@
         <div class="card">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-            </a>
+
           </div>
           <div class="card-body">
             <h4 class="card-title">{{post.titulo}}</h4>
@@ -27,20 +25,24 @@
 </section>
 
 
+
+
 <ng-template #modalPost let-modal>
+
   <div class="modal-body">
-    <div>
-
-      <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
-
-      <div class="container mt-3">
-        <h4 class="text-left mt-3 mb-3">{{showPost.subtitulo}}</h4>
-        {{showPost.contenido}}
-      </div>
-
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
     </div>
+
+    <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
+
+    <h4 class="text-left mt-3 mb-3">{{showPost.subtitulo}}</h4>
+    {{showPost.contenido}}
+
   </div>
+
   <div class="modal-footer">
-    <small class="text-right mt-3">{{showPost.fecha}}</small>
+    <small class="text-right mt-3">Publicado el: {{showPost.fecha}}</small>
   </div>
+
 </ng-template>
