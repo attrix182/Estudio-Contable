@@ -18,9 +18,21 @@
      
             </p>
             <a class="btn btn-primary" (click)="selectPost(post)" >Leer mas</a>
+            <button class="btn btn-primary" (click)="abrirModalPost()" >Leer mas</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<ng-template #modalPost let-modal>
+  <div class="modal-body" align=center>
+    {{posts.titulo}}
+    <h1>aaa</h1>
+  </div>
+  <div class="modal-footer">
+  
+  </div>
+</ng-template>

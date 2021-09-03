@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgrandarDirective } from './directivas/agrandar.directive';
 import { PostComponent } from './pages/post/post.component';
 import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-ca
     FooterComponent,
     AgrandarDirective,
     PostComponent,
-    InfiniteCarouselComponent
+    InfiniteCarouselComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-ca
     NgxPageScrollModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

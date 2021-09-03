@@ -1,8 +1,10 @@
 
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
 import { ViewPostService } from 'src/app/services/view-post.service';
+
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-news',
@@ -18,7 +20,11 @@ export class NewsComponent implements OnInit {
 
   @Output() selectedPost: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private postService: PostsService, private viewPostService: ViewPostService, private router: Router) { }
+  @ViewChild('modalPost', { read: TemplateRef })
+  modalPost: TemplateRef<any>;
+
+  constructor(private postService: PostsService, private viewPostService: ViewPostService, private router: Router,
+    private modalService: NgbModal,private vref: ViewContainerRef) { }
 
   ngOnInit(): void {
     this.getPosts()
@@ -39,6 +45,11 @@ export class NewsComponent implements OnInit {
   selectPost(post) {
     this.viewPostService.selectPost(post);
     this.router.navigateByUrl("/post")
+  }
+
+  abrirModalPost() {
+    //this.turnoAmodificar = turno
+    this.modalService.open(this.modalPost)
   }
 
 }
