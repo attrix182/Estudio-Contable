@@ -1,3 +1,4 @@
+import { LoginComponent } from './pages/login/login.component';
 import { PostComponent } from './pages/post/post.component';
 
 import { NgModule } from '@angular/core';
@@ -7,7 +8,8 @@ import { BodyComponent } from './pages/body/body.component';
 const routes: Routes = [
 
   { path: '', component:  BodyComponent},
-  { path: 'post', component:  PostComponent}
+  { path: 'post', component:  PostComponent},
+  { path: 'login', component:  LoginComponent}
 ];
 
 @NgModule({
