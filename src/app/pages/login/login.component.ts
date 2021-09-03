@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          res == "OK" ? this.router.navigateByUrl('/') : this.alertSVC.alertBottom('error','Usuario o contraseña incorrectos');
+          res == "OK" ? this.router.navigateByUrl('/panel') : this.alertSVC.alertBottom('error','Usuario o contraseña incorrectos');
         },
         err => console.error(err));
   }

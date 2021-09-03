@@ -19,7 +19,12 @@ export class AuthService {
   }
 
  loginUser(item: any) {
+   localStorage.setItem('token', 'true');
     return this.http.post(`${this.API_URI}/users/login`, item, { responseType: 'text'});
+  }
+
+  isLoggedIn() {
+    return !!localStorage.getItem('token');
   }
 
 

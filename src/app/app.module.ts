@@ -20,6 +20,7 @@ import { InfiniteCarouselComponent } from './component/infinite-carousel/infinit
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login/login.component';
 import { LinksComponent } from './component/links/links.component';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { LinksComponent } from './component/links/links.component';
     InfiniteCarouselComponent,
     LoginComponent,
     LinksComponent,
+    AdminPanelComponent,
     
   ],
   imports: [
