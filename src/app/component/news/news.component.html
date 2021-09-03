@@ -15,10 +15,10 @@
             <h4 class="card-title">{{post.titulo}}</h4>
             <h6>{{post.subtitulo}}</h6>
             <p class="card-text">
-     
+
             </p>
-            <a class="btn btn-primary" (click)="selectPost(post)" >Leer mas</a>
-            <button class="btn btn-primary" (click)="abrirModalPost()" >Leer mas</button>
+            <a class="btn btn-primary" (click)="selectPost(post)">Pagina</a>
+            <button class="btn btn-primary" (click)="abrirModalPost(post)">Modal</button>
           </div>
         </div>
       </div>
@@ -28,11 +28,19 @@
 
 
 <ng-template #modalPost let-modal>
-  <div class="modal-body" align=center>
-    {{posts.titulo}}
-    <h1>aaa</h1>
+  <div class="modal-body">
+    <div>
+
+      <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
+
+      <div class="container mt-3">
+        <h4 class="text-left mt-3 mb-3">{{showPost.subtitulo}}</h4>
+        {{showPost.contenido}}
+      </div>
+
+    </div>
   </div>
   <div class="modal-footer">
-  
+    <small class="text-right mt-3">{{showPost.fecha}}</small>
   </div>
 </ng-template>

@@ -17,6 +17,8 @@ export class NewsComponent implements OnInit {
   public posts: any = [];
   public postsAux: any = [];
   public result: any[] = [];
+  
+  public showPost: any = "";
 
   @Output() selectedPost: EventEmitter<any> = new EventEmitter<any>();
 
@@ -47,8 +49,8 @@ export class NewsComponent implements OnInit {
     this.router.navigateByUrl("/post")
   }
 
-  abrirModalPost() {
-    //this.turnoAmodificar = turno
+  abrirModalPost(post) {
+    this.showPost = post
     this.modalService.open(this.modalPost)
   }
 
