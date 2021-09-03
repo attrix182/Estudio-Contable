@@ -18,6 +18,7 @@ const routes: Routes = [
     path: 'panel', component: AdminPanelComponent,
     canActivate: [CheckLoginGuard]
   },
+  { path: '**', component: BodyComponent },
 ];
 
 @NgModule({
