@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
 
 
-  constructor(private auth: AuthService, private FB: FormBuilder, private router: Router, private alertSVC:AlertService) {
+  constructor(private auth: AuthService, private FB: FormBuilder, private router: Router, private alertSVC: AlertService) {
     this.email = ''
   }
 
@@ -41,11 +41,12 @@ export class LoginComponent implements OnInit {
   onLogin() {
 
     console.log(this.formLogin.value)
+    
     this.auth.loginUser(this.formLogin.value)
       .subscribe(
         res => {
           console.log(res);
-          res == "OK" ? this.router.navigateByUrl('/panel') : this.alertSVC.alertBottom('error','Usuario o contraseña incorrectos');
+          res == "OK" ? this.router.navigateByUrl('/panel') : this.alertSVC.alertBottom('error', 'Usuario o contraseña incorrectos');
         },
         err => console.error(err));
   }
