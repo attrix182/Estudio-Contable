@@ -15,15 +15,17 @@ export class AuthService {
  
 
   registerUser(item: any) {
-    return this.http.post(`${this.API_URI}/users/login`, item, { responseType: 'text'});
+    return this.http.post(`${this.API_URI}/users/register`, item, { responseType: 'text'});
   }
 
  loginUser(item: any) {
-    return this.http.post(`${this.API_URI}/users`, item, { responseType: 'text'});
+    return this.http.post(`${this.API_URI}/users/login`, item, { responseType: 'text'});
   }
 
 
-
-
+  
 }
 
+function CrossOrigin(arg0: string) {
+  throw new Error('Function not implemented.');
+}

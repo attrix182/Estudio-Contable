@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -8,23 +12,44 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  private user: any = {}
+  public email: string = '';
+  public clave: string = '';
 
-  constructor(private auth: AuthService) { }
+  public user: any = {};
+  public formLogin: FormGroup;
+
+
+  constructor(private auth: AuthService, private FB: FormBuilder, private router: Router, private alertSVC:AlertService) {
+    this.email = ''
+  }
 
   ngOnInit(): void {
+    this.formLogin = new FormGroup({
+      'correo': new FormControl(''),
+      'clave': new FormControl('')
+    });
+
+    this.formLogin = this.FB.group({
+
+      'correo': ['', Validators.required],
+      'clave': ['', Validators.required]
+    })
   }
+
 
 
   onLogin() {
 
-    this.auth.loginUser(this.user)
+    console.log(this.formLogin.value)
+    this.auth.loginUser(this.formLogin.value)
       .subscribe(
         res => {
           console.log(res);
-          //this.router.navigate(['/games']);
+          res == "OK" ? this.router.navigateByUrl('/') : this.alertSVC.alertBottom('error','Usuario o contraseña incorrectos');
         },
         err => console.error(err));
   }
+
+
 
 }
