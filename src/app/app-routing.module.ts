@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BodyComponent } from './pages/body/body.component';
 import { CheckLoginGuard } from './shared/guard/check-login.guard';
+import { AddPostComponent } from './pages/add-post/add-post.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'panel', component: AdminPanelComponent,
+    canActivate: [CheckLoginGuard]
+  },
+  {
+    path: 'addPost', component: AddPostComponent,
     canActivate: [CheckLoginGuard]
   },
   { path: '**', component: BodyComponent },

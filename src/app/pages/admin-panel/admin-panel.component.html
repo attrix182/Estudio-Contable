@@ -20,6 +20,7 @@
   </div>
 </nav>
 
+
 <br><br>
 <br><br>
 
@@ -28,5 +29,54 @@
 
 <app-news></app-news>
 
-<button class="btn btn-primary btn-block mt-3">Crear Post</button>
+<button class="btn btn-primary btn-block mt-3" routerLink="/addPost">Crear Post pagina</button>
+
+
+<button class="btn btn-primary btn-block mt-3" (click)="writePost()">Crear Post modal</button>
+
+
+
+
+
 </div>
+
+
+
+<ng-template #modaladdPost let-modal>
+
+  
+  <div class="banner" >
+    <input type="file" accept="image/*" id="banner-upload" hidden>
+    <label for="banner-upload" class="banner-upload-btn"> <i class="fa fa-upload"></i> </label>
+</div>
+
+<div class="blog" >
+    <textarea type="text" class="title" placeholder="Titulo..."></textarea>
+    <textarea type="text" class="article" placeholder="Empiece a escribir..."></textarea>
+</div>
+
+<div class="blog-options">
+  <button class="btn dark publish-btn">Publicar</button>
+  <input type="file" accept="image/*" id="image-upload" hidden>
+  <label for="image-upload" class="btn grey upload-btn">Subir Imagen <i class="fa fa-upload"></i></label>
+</div>
+
+
+
+<!--   <div class="modal-body">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+    </div>
+
+    <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
+
+    <h4 class="text-left mt-3 mb-3">{{showPost.subtitulo}}</h4>
+    {{showPost.contenido}}
+
+  </div>
+
+  <div class="modal-footer">
+    <small class="text-right mt-3">Publicado el: {{showPost.fecha}}</small>
+  </div> -->
+
+</ng-template>

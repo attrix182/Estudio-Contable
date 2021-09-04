@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, TemplateRef, ViewContainerRef } from '@angular/core';
+
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
+import { ViewPostService } from 'src/app/services/view-post.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -9,16 +12,27 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+    
+  @ViewChild('modaladdPost', { read: TemplateRef })
+  modaladdPost: TemplateRef<any>
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private router: Router, private viewPostService: ViewPostService,
+    private modalService: NgbModal,private vref: ViewContainerRef) { }
 
 
-  }
+
+
+  ngOnInit(): void {}
 
   logOut() {
     this.authService.logOut();
     this.router.navigateByUrl('/');
     
   }
+
+
+  writePost(){
+    this.modalService.open(this.modaladdPost)
+  }
+
 }
