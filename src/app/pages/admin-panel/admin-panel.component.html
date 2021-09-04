@@ -1,0 +1,32 @@
+<nav class="navbar  navbar-expand-lg navbar-dark" id="navbar" ngxHideOnScroll [propertyUsedToHide]="'top'"
+  [valueWhenHidden]="'-100px'" [valueWhenShown]="'0px'">
+  <div class="row">
+
+  </div>
+  <div class="container">
+    <div class="nav__logo" #nav__logo>
+      <a pageScroll [pageScrollDuration]="500" class="navbar-brand" href="#home">
+        <img id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
+      </a>
+    </div>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect" (click)="logOut()">
+          <i class="fas fa-user exit"></i>
+          <i class="fas fa-sign-out-alt exit"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br><br>
+<br><br>
+
+
+<div align="center" class="container">
+
+<app-news></app-news>
+
+<button class="btn btn-primary btn-block mt-3">Crear Post</button>
+</div>

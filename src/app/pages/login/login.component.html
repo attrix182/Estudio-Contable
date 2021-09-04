@@ -1,0 +1,36 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Signin Template · Bootstrap v4.6</title>
+
+  </head>
+  <body class="text-center">
+    
+<div [formGroup]="formLogin" class="form-signin">
+  <img class="mb-4" src="../../../assets/logoR.jpg" alt="" width="85" >
+  <h1 class="h3 mb-3 font-weight-normal">Iniciar sesion</h1>
+
+
+  <label for="inputEmail" class="sr-only" >Email</label>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="correo" required autofocus>
+  <label for="inputPassword" class="sr-only">Clave</label>
+  <input type="password" id="inputPassword" class="form-control" formControlName="clave"  placeholder="Clave" required>
+  <div class="checkbox mb-3">
+
+    <label>
+      <input type="checkbox" value="remember-me"> Mantener sesion
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" (click)="onLogin()">INICIAR SESION</button>
+  <p class="mt-5 mb-3 text-muted">&copy;</p>
+</div>
+
+
+    
+  </body>
+</html>

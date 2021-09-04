@@ -1,0 +1,40 @@
+<app-nav-bar (showNavBar)="hiddeLogo($event)"></app-nav-bar>
+<div id="img__logo" class="container" style="position: relative;">
+  <img id=nav__logo-img #nav__logo_img src="../../../assets/logo.jpg" alt="logo sivila" srcset=""
+    style="position: absolute; z-index: 200; width: 10em ;">
+</div>
+<!--Video-->
+<section class="containVideo" id="home" style="position: relative;">
+  <video class="fullscreen" src="../../../assets/video/pexels-mikhail-nilov-6963480.mp4" playsinline autoplay muted
+    loop>
+  </video>
+</section>
+<!--Video-->
+
+<!--Enlaces utiles-->
+<app-links></app-links>
+<!--Enlaces utiles-->
+
+<!--Main-->
+<main class="main">
+  <div class="container-flex">
+    <!--Section: News-->
+    <app-news id="news" class="news m-3"></app-news>
+    <!--Section: News-->
+    <!--Section: About-->
+    <app-about class="about" id="about"></app-about>
+    <!--Section: About-->
+    <hr class="my-5" />
+    <!--Section: Contact-->
+    <app-contact id="contact"></app-contact>
+    <!--Section: Contact-->
+  </div>
+</main>
+<!--Main-->
+
+<!--Footer-->
+<footer class="bg-light text-lg-start">
+  <app-footer></app-footer>
+  <a routerLink="login">Login Administracion</a>
+</footer>
+<!--Footer-->

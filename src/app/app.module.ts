@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
-import { BodyComponent } from './component/body/body.component';
+import { BodyComponent } from './pages/body/body.component';
 import { AboutComponent } from './component/about/about.component';
 import { NewsComponent } from './component/news/news.component';
 import { ContactComponent } from './component/contact/contact.component';
@@ -16,7 +16,12 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgrandarDirective } from './directivas/agrandar.directive';
 import { PostComponent } from './pages/post/post.component';
-import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-carousel.component';
+import { InfiniteCarouselComponent } from './component/infinite-carousel/infinite-carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './pages/login/login.component';
+import { LinksComponent } from './component/links/links.component';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-ca
     FooterComponent,
     AgrandarDirective,
     PostComponent,
-    InfiniteCarouselComponent
+    InfiniteCarouselComponent,
+    LoginComponent,
+    LinksComponent,
+    AdminPanelComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,8 @@ import { InfiniteCarouselComponent } from './pages/infinite-carousel/infinite-ca
     NgxPageScrollModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,20 +7,42 @@
         <div class="card">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-            </a>
+
           </div>
           <div class="card-body">
             <h4 class="card-title">{{post.titulo}}</h4>
             <h6>{{post.subtitulo}}</h6>
             <p class="card-text">
-              {{post.contenido}}
+
             </p>
-            <a class="btn btn-primary" (click)="selectPost(post)" >Leer mas</a>
+            <a class="btn btn-primary" (click)="selectPost(post)">Pagina</a>
+            <button class="btn btn-primary" (click)="abrirModalPost(post)">Modal</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+
+
+<ng-template #modalPost let-modal>
+
+  <div class="modal-body">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+    </div>
+
+    <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
+
+    <h4 class="text-left mt-3 mb-3">{{showPost.subtitulo}}</h4>
+    {{showPost.contenido}}
+
+  </div>
+
+  <div class="modal-footer">
+    <small class="text-right mt-3">Publicado el: {{showPost.fecha}}</small>
+  </div>
+
+</ng-template>
