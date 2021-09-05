@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login/login.component';
 import { LinksComponent } from './component/links/links.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+import { AddPostComponent } from './pages/add-post/add-post.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
     LoginComponent,
     LinksComponent,
     AdminPanelComponent,
+    AddPostComponent,
     
   ],
   imports: [
