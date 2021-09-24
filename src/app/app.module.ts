@@ -23,6 +23,8 @@ import { LinksComponent } from './component/links/links.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { AddPostComponent } from './pages/add-post/add-post.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -51,8 +53,9 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    IvyCarouselModule
-  ],
+    IvyCarouselModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig)
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
