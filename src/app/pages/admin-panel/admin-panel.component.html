@@ -46,14 +46,13 @@
   <form [formGroup]="myForm">
 
     <div class="banner">
-      <input type="file" accept="image/*" (change)="imagePreview($event)" hidden>
-
 
       <div *ngIf="filePath && filePath !== ''">
-        <img [src]="filePath" [alt]="myForm.value.name">
+        <img [src]="filePath" [alt]="myForm.value.name" class="imgCover">
       </div>
-      <!-- <i class="fa fa-upload"></i> -->
-      <input type="file" for="banner-upload" class="banner-upload-btn" accept="image/*" (change)="imagePreview($event)">
+   
+      <input type="file"  accept="image/*" id="banner-upload" (change)="imagePreview($event)" hidden>
+      <label for="banner-upload" class="banner-upload-btn"><img src="https://raw.githubusercontent.com/kunaal438/blogging-site/master/public/img/upload.png" alt="upload banner"></label>
     </div>
 
     <div class="blog">

@@ -138,3 +138,16 @@ textarea::-webkit-scrollbar-thumb{
     margin-left: 20px;
     font-size: 14px;
 }
+
+.imgCover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    cursor: pointer;
+
+}
+
