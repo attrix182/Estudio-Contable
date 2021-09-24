@@ -3,4 +3,6 @@
     -ms-transform: scale(1.5);
     transform: scale(1.5);
   }
- 
+.links__item{
+  height: 100px;
+}

@@ -7,4 +7,29 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'estudioContable';
+  images = [
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+    {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+];   
+
+imagesForSlider = [
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+  {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
+];
 }

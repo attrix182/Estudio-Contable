@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-body',
@@ -8,14 +8,17 @@ import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 export class BodyComponent implements OnInit {
 
   @ViewChild('nav__logo_img', { static: true }) logo_img: any;
-  constructor(private render: Renderer2) { }
+  @ViewChild('videoPlayer') videoplayer: ElementRef;
+  constructor(private render: Renderer2) {
+  }
 
   ngOnInit(): void {
+    this.videoplayer?.nativeElement.play();
   }
-  hiddeLogo(flag:boolean){
-    if(flag){
+  hiddeLogo(flag: boolean) {
+    if (flag) {
       this.render.setAttribute(this.logo_img.nativeElement, 'style', "position: absolute; z-index: 10; width: 10em;");
-    }else{
+    } else {
       this.render.setAttribute(this.logo_img.nativeElement, 'style', "position: absolute; z-index: 200; width: 10em;");
     }
   }

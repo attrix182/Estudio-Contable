@@ -1,0 +1,16 @@
+carousel{
+    position: relative;
+    z-index: 1;
+}
+.card{
+    width: 300px;
+    height: auto;
+    margin: auto;
+}
+
+.carousel-cell{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}

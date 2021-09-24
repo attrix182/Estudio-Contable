@@ -22,7 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LinksComponent } from './component/links/links.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { AddPostComponent } from './pages/add-post/add-post.component';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { AddPostComponent } from './pages/add-post/add-post.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

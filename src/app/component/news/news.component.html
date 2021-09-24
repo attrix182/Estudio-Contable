@@ -1,28 +1,23 @@
 <section class="news text-center container">
   <h4 class="mb-5"><strong>Novedades</strong></h4>
-  <div class="row">
-    <div class="col" *ngFor="let post of posts[0]">
-      <!-- col-lg-4 col-md-6 mb-4 -->
-      <div class="col">
-        <div class="card">
-          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">{{post.titulo}}</h4>
-            <h6>{{post.subtitulo}}</h6>
-            Publicado el: {{post.fecha}}
-            <p class="card-text">
-
-            </p>
-            <a class="btn btn-primary" (click)="selectPost(post)">Pagina</a>
-            <button class="btn btn-primary" (click)="abrirModalPost(post)">Modal</button>
-          </div>
+  <carousel [loop]='true' [autoplay]='true'  [height]="400" [cellsToScroll]='1'
+    [objectFit]="'cover'"  [lightDOM]="true" [cellsToShow]='test' [overflowCellsLimit]='3' [dots]="true" [objectFit]="'cover'">
+    
+    <div class="carousel-cell" *ngFor="let post of posts[0]">
+      <div class="card" >
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" />
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{post.titulo}}</h4>
+          <h6>{{post.subtitulo}}</h6>
+          <p class="card-text">
+          </p>
+          <button class="btn btn-primary" (click)="abrirModalPost(post)">Modal</button>
         </div>
       </div>
     </div>
-  </div>
+  </carousel>
 </section>
 
 
