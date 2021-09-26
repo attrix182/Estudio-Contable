@@ -29,14 +29,7 @@
 
   <app-news></app-news>
 
-  <button class="btn btn-primary btn-block mt-3" routerLink="/addPost">Crear Post pagina</button>
-
-
-  <button class="btn btn-primary btn-block mt-3" (click)="writePost()">Crear Post modal</button>
-
-
-
-
+  <button class="btn btn-primary btn-block mt-3" (click)="writePost()">Crear Post</button>
 
 </div>
 
@@ -50,50 +43,26 @@
       <div *ngIf="filePath && filePath !== ''">
         <img [src]="filePath" [alt]="myForm.value.name" class="imgCover">
       </div>
-   
-      <input type="file"  accept="image/*" id="banner-upload" (change)="imagePreview($event)" hidden>
-      <label for="banner-upload" class="banner-upload-btn"><img src="https://raw.githubusercontent.com/kunaal438/blogging-site/master/public/img/upload.png" alt="upload banner"></label>
+
+      <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)" hidden>
+      <label for="banner-upload" class="banner-upload-btn"><img
+          src="https://raw.githubusercontent.com/kunaal438/blogging-site/master/public/img/upload.png"
+          alt="upload banner"></label>
     </div>
 
     <div class="blog">
-      <textarea type="text" class="title"  formControlName="titulo" placeholder="Titulo..."></textarea>
-      <textarea type="text" class="subtitle"  formControlName="subtitulo" placeholder="Subitulo..."></textarea>
-      <textarea type="text" class="article" formControlName="contenido"  placeholder="Empiece a escribir..."></textarea>
+      <textarea type="text" class="title" formControlName="titulo" placeholder="Titulo..."></textarea>
+      <textarea type="text" class="subtitle" formControlName="subtitulo" placeholder="Subitulo..."></textarea>
+      <textarea type="text" class="article" formControlName="contenido" placeholder="Empiece a escribir..."></textarea>
     </div>
 
     <div class="blog-options">
-      <button class="btn dark publish-btn" (click)="addPost()">Publicar</button>
+      <button class="btn dark publish-btn" [disabled]="post.invalid" (click)="addPost()">Publicar</button>
       <input type="file" id="image-upload" accept="image/*" (change)="imagePreview($event)" hidden>
       <label for="image-upload" class="btn grey upload-btn">Subir Imagen <i class="fa fa-upload"></i></label>
     </div>
 
-
-
-
-
-
-
-
-
     <button type="submit">Upload</button>
   </form>
-
-
-
-  <!--   <div class="modal-body">
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-    </div>
-
-    <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
-
-    <h4 class="text-left mt-3 mb-3">{{showPost.subtitulo}}</h4>
-    {{showPost.contenido}}
-
-  </div>
-
-  <div class="modal-footer">
-    <small class="text-right mt-3">Publicado el: {{showPost.fecha}}</small>
-  </div> -->
 
 </ng-template>

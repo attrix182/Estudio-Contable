@@ -14,3 +14,8 @@ carousel{
     display: flex;
     flex-wrap: wrap;
 }
+
+.effect:hover {
+    filter: grayscale(100%);
+  }
+  

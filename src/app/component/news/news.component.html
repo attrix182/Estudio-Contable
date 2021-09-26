@@ -4,7 +4,7 @@
     [objectFit]="'cover'"  [lightDOM]="true" [cellsToShow]='test' [overflowCellsLimit]='3' [dots]="true" [objectFit]="'cover'">
     
     <div class="carousel-cell" *ngFor="let post of posts">
-      <div class="card" >
+      <div class="card effect" (click)="abrirModalPost(post)">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
           <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" />
         </div>
@@ -13,7 +13,7 @@
           <h6>{{post.subtitulo}}</h6>
           <p class="card-text">
           </p>
-          <button class="btn btn-primary" (click)="abrirModalPost(post)">Modal</button>
+       
         </div>
       </div>
     </div>
