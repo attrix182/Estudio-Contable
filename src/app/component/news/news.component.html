@@ -3,7 +3,7 @@
   <carousel [loop]='true' [autoplay]='true'  [height]="400" [cellsToScroll]='1'
     [objectFit]="'cover'"  [lightDOM]="true" [cellsToShow]='test' [overflowCellsLimit]='3' [dots]="true" [objectFit]="'cover'">
     
-    <div class="carousel-cell" *ngFor="let post of posts[0]">
+    <div class="carousel-cell" *ngFor="let post of posts">
       <div class="card" >
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
           <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" />

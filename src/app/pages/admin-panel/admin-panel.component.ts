@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, TemplateRef, ViewContainerRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
+import { FireService } from 'src/app/services/fire.service';
 import { ViewPostService } from 'src/app/services/view-post.service';
 
 @Component({
@@ -19,32 +20,46 @@ export class AdminPanelComponent implements OnInit {
 
   filePath: string;
   myForm: FormGroup;
+  post: FormGroup;
 
 
-  constructor(public fb: FormBuilder,private authService: AuthService, private router: Router, private viewPostService: ViewPostService,
-    private modalService: NgbModal, private vref: ViewContainerRef) {
-      this.myForm = this.fb.group({
-        img: [null],
-        filename: ['']
-      })
-     }
+  constructor(public fb: FormBuilder, private authService: AuthService, private router: Router, private viewPostService: ViewPostService,
+    private modalService: NgbModal,private FB: FormBuilder, private vref: ViewContainerRef, private fire: FireService) {
 
 
-    imagePreview(e) {
-      const file = (e.target as HTMLInputElement).files[0];
-  
-      this.myForm.patchValue({
-        img: file
-      });
-  
-      this.myForm.get('img').updateValueAndValidity()
-  
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.filePath = reader.result as string;
-      }
-      reader.readAsDataURL(file)
+    this.post = new FormGroup({
+      'titulo': new FormControl(''),
+      'subtitulo': new FormControl(''),
+      'contenido': new FormControl('')
+      
+    });
+
+    this.post = this.FB.group({
+
+      'titulo': ['', Validators.required],
+      'subtitulo': ['', Validators.required],
+      'contenido': ['', Validators.required],
+      img: [null],
+      filename: ['']
+    })
+  }
+
+
+  imagePreview(e) {
+    const file = (e.target as HTMLInputElement).files[0];
+
+    this.myForm.patchValue({
+      img: file
+    });
+
+    this.myForm.get('img').updateValueAndValidity()
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.filePath = reader.result as string;
     }
+    reader.readAsDataURL(file)
+  }
 
   ngOnInit(): void { }
 
@@ -57,6 +72,16 @@ export class AdminPanelComponent implements OnInit {
 
   writePost() {
     this.modalService.open(this.modaladdPost)
+  }
+
+  addPost() {
+    //arreglar fecha de publicacion
+    var date = new Date();
+    this.post.value.fecha = date.getTime();
+
+    this.fire.Insert('posts', this.post.value);
+    this.modalService.dismissAll();
+
   }
 
 }

@@ -5,6 +5,7 @@ import { PostsService } from 'src/app/services/posts.service';
 import { ViewPostService } from 'src/app/services/view-post.service';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FireService } from 'src/app/services/fire.service';
 
 @Component({
   selector: 'app-news',
@@ -13,7 +14,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewsComponent implements OnInit {
 
-  public test: number=3;
+  public test: number = 3;
   public posts: any = [];
   public postsAux: any = [];
   public result: any[] = [];
@@ -25,21 +26,28 @@ export class NewsComponent implements OnInit {
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
-  constructor(private postService: PostsService, private viewPostService: ViewPostService, private router: Router,
-    private modalService: NgbModal, private vref: ViewContainerRef) { 
-      if(window.screen.width > 200){
-        this.test = 1;
-      }
-      if (window.screen.width > 600) {
-        this.test = 2;
-      }
-      if(window.screen.width > 900) {
-        this.test = 3;
-      }
+  constructor(private fire: FireService, private viewPostService: ViewPostService, private router: Router,
+    private modalService: NgbModal, private vref: ViewContainerRef) {
+    if (window.screen.width > 200) {
+      this.test = 1;
+    }
+    if (window.screen.width > 600) {
+      this.test = 2;
+    }
+    if (window.screen.width > 900) {
+      this.test = 3;
     }
 
+
+    this.fire.GetAll('posts').subscribe((data) => {
+      this.posts = data;
+      console.log(this.posts);
+    });
+
+  }
+
   ngOnInit(): void {
-    this.getPosts();
+
   }
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -49,22 +57,12 @@ export class NewsComponent implements OnInit {
     if (event.target.innerWidth > 600) {
       this.test = 2;
     }
-    if(event.target.innerWidth > 900) {
+    if (event.target.innerWidth > 900) {
       this.test = 3;
     }
   }
 
-  getPosts() {
-    this.postService.getPosts()
-      .subscribe(
-        res => {
-          this.posts.splice(0, this.posts.length)
-          this.posts.push(res);
-          this.postsAux = this.posts
-        },
-        err => console.error('no results')
-      );
-  }
+
 
   selectPost(post) {
     this.viewPostService.selectPost(post);
