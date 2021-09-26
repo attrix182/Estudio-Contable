@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   public email: string = '';
   public clave: string = '';
 
+
   public user: any = {};
   public formLogin: FormGroup;
 
@@ -40,15 +41,14 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
 
-    console.log(this.formLogin.value)
-    
-    this.auth.loginUser(this.formLogin.value)
-      .subscribe(
-        res => {
-          console.log(res);
-          res == "OK" ? this.router.navigateByUrl('/panel') : this.alertSVC.alertBottom('error', 'Usuario o contraseña incorrectos');
-        },
-        err => console.error(err));
+    this.user = this.formLogin.value;
+
+    console.log(this.user)
+    this.auth.onLogin(this.user)
+      .then(res => {
+
+        res == true ? this.router.navigateByUrl('/panel') : this.alertSVC.alertBottom('error', 'Usuario o contraseña incorrectos');
+      })
   }
 
 

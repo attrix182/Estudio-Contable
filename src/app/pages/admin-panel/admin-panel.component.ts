@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
-import { ViewPostService } from 'src/app/services/view-post.service';
 
 
 @Component({
@@ -24,7 +23,7 @@ export class AdminPanelComponent implements OnInit {
   post: FormGroup;
 
 
-  constructor(public fb: FormBuilder, private authService: AuthService, private router: Router, private viewPostService: ViewPostService,
+  constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
     private modalService: NgbModal,private FB: FormBuilder, private vref: ViewContainerRef, private fire: FireService) {
 
 
@@ -65,7 +64,7 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void { }
 
   logOut() {
-    this.authService.logOut();
+    this.authService.LogOutCurrentUser();
     this.router.navigateByUrl('/');
 
   }

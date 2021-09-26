@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router} from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
@@ -7,17 +7,23 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class CheckLoginGuard implements CanActivate {
 
-  public aux:boolean = false;
+  public aux: boolean = false;
 
-  constructor(private authSvc:AuthService, private router: Router) { }
+  constructor(private authSvc: AuthService, private router: Router) { }
 
 
 
-  canActivate(): boolean {
+  async canActivate() {
 
-    this.authSvc.isLoggedIn() ?  this.aux = true: this.router.navigateByUrl('/');
+    let flag = false;
 
-    return this.aux;
+    let userLog = localStorage.getItem('token');
+
+    let log = await this.authSvc.GetCurrentUser()
+
+    log.uid == userLog ? flag = true : this.router.navigateByUrl('/login');
+
+
+    return flag
   }
-
 }

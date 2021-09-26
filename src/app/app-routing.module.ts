@@ -1,6 +1,5 @@
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { LoginComponent } from './pages/login/login.component';
-import { PostComponent } from './pages/post/post.component';
 
 
 
@@ -13,15 +12,13 @@ import { AddPostComponent } from './pages/add-post/add-post.component';
 const routes: Routes = [
 
   { path: '', component: BodyComponent },
-  { path: 'post', component: PostComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'panel', component: AdminPanelComponent,
     canActivate: [CheckLoginGuard]
   },
   {
-    path: 'addPost', component: AddPostComponent,
-    canActivate: [CheckLoginGuard]
+    path: 'addPost', component: AddPostComponent
   },
   { path: '**', component: BodyComponent },
 ];

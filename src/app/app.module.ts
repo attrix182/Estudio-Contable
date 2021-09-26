@@ -15,7 +15,6 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgrandarDirective } from './directivas/agrandar.directive';
-import { PostComponent } from './pages/post/post.component';
 import { InfiniteCarouselComponent } from './component/infinite-carousel/infinite-carousel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login/login.component';
@@ -36,7 +35,6 @@ import { environment } from 'src/environments/environment';
     ContactComponent,
     FooterComponent,
     AgrandarDirective,
-    PostComponent,
     InfiniteCarouselComponent,
     LoginComponent,
     LinksComponent,

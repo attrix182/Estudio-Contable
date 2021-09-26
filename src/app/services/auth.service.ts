@@ -1,41 +1,58 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
  
+  currentUser: any;
+  public isLogged: any = false;
 
-  constructor(private http: HttpClient) { }
-
-  API_URI = 'https://apirestestudiocontable.herokuapp.com/api';
-
-
- 
-
-  registerUser(item: any) {
-    return this.http.post(`${this.API_URI}/users/register`, item, { responseType: 'text'});
+  constructor(public afAuth: AngularFireAuth) {
+    afAuth.authState.subscribe(user => (this.isLogged = user));
   }
 
- loginUser(item: any) {
-   localStorage.setItem('token', 'true');
-    return this.http.post(`${this.API_URI}/users/login`, item, { responseType: 'text'});
+  async onLogin(user: any): Promise<Boolean> {
+    return this.afAuth.signInWithEmailAndPassword(user.correo, user.clave)
+      .then((userCredential) => {
+        localStorage.setItem('token', userCredential.user.uid)
+        return true
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/user-not-found":
+            console.log('error', "email invalido");
+            break;
+          case "auth/wrong-password":
+            console.log('error', "clave invalida");
+            break;
+          case "auth/too-many-requests":
+            console.log('error', "A realizados demaciados intentos")
+        }
+        return false
+      });
   }
 
-  isLoggedIn() {
-    return !!localStorage.getItem('token');
+
+  async onRegister(user: any){
+    try {
+      return await this.afAuth.createUserWithEmailAndPassword(user.correo, user.clave);
+    }
+    catch (error) {
+      console.log('Error, en registro');
+      return error;
+    }
   }
 
-  
-  logOut() {
+  GetCurrentUser() {
+    return this.afAuth.currentUser;
+  }
+
+  LogOutCurrentUser() {
     localStorage.removeItem('token');
+    this.afAuth.signOut();
   }
 
-
-  
-}
-
-function CrossOrigin(arg0: string) {
-  throw new Error('Function not implemented.');
 }
