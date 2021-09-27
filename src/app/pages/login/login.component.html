@@ -17,9 +17,9 @@
 
 
   <label for="inputEmail" class="sr-only" >Email</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email" required autofocus>
+  <input [class]="isValidField('email')" type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email" required autofocus>
   <label for="inputPassword" class="sr-only">Clave</label>
-  <input  type="password" id="inputPassword" class="form-control" formControlName="password"  placeholder="Clave" required>
+  <input [class]="isValidField('password')" type="password" id="inputPassword" class="form-control" formControlName="password"  placeholder="Clave" required>
   <div class="checkbox mb-3">
 
     <label>

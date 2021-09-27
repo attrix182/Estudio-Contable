@@ -34,9 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-
-
-
   async onLogin() {
     this.user = this.formLogin.value;
     try {
@@ -49,6 +46,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
+  isValidField(field: string): string {
+    const validateField = this.formLogin.get(field);
+    return !validateField.valid && validateField.touched
+      ? 'is-invalid'
+      : validateField.touched
+        ? 'is-valid'
+        : '';
+  }
 
 
 

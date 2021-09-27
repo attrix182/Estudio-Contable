@@ -24,7 +24,6 @@ export class AuthService {
       localStorage.setItem('token', userCredential.user.uid)
       return true
     })
-    console.log(result);
     return result;
   }
 
