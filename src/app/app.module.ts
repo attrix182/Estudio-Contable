@@ -24,7 +24,8 @@ import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-
+import { CarouselModule } from 'ng-carousel-cdk';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +51,13 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    CarouselModule,
     IvyCarouselModule,
+    BrowserAnimationsModule,
     AngularFireAuthModule,
       AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
+    exports:[CarouselModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,46 +1,126 @@
+<h4 class="mb-5 text-center"><strong>Contacto</strong></h4>
 <div class="row">
-  <section class="mb-5 col-6">
-  <h4 class="mb-5 text-center"><strong>Contacto</strong></h4>
-      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userForm">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Nombre Completo</label>
-          <input type="text" class="form-control" id="fullname" placeholder="Nombre Apellido" formControlName="fullname"
-            [class]="isValidField('fullname')" />
+  <section class="mb-5 col-12 col-lg-6 ">
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userForm">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre Completo</label>
+        <input type="text" class="form-control" id="fullname" placeholder="Nombre Apellido" formControlName="fullname"
+          [class]="isValidField('fullname')" />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo Electronico</label>
+        <input type="email" class="form-control" id="email" placeholder="contador@gmail.com" formControlName="email"
+          [class]="isValidField('email')" />
+      </div>
+      <div class="form-group">
+        <label for="subject">Asunto</label>
+        <input type="text" class="form-control" id="subject" placeholder="Asunto" formControlName="subject"
+          [class]="isValidField('subject')" />
+      </div>
+      <div class="form-group">
+        <label for="comment">Consulta</label>
+        <textarea type="text-area" class="form-control" id="comment" placeholder="Consulta" formControlName="comment"
+          [class]="isValidField('comment')" style="resize: none;" rows=6></textarea>
+        <!-- agregar minima cantidad de caracteres -->
+      </div>
+      <button *ngIf="!loading" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="userForm.invalid">
+        Enviar
+      </button>
+      <button *ngIf="loading" type="submit" class="btn btn-primary btn-block mb-4" disabled>
+        <div class="d-flex align-items-center">
+          <strong>Enviando...</strong>
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Correo Electronico</label>
-          <input type="email" class="form-control" id="email" placeholder="contador@gmail.com" formControlName="email"
-            [class]="isValidField('email')" />
-        </div>
-        <div class="form-group">
-          <label for="subject">Asunto</label>
-          <input type="text" class="form-control" id="subject" placeholder="Asunto"
-            formControlName="subject" [class]="isValidField('subject')" />
-        </div>
-        <div class="form-group">
-          <label for="comment">Consulta</label>
-            <textarea type="text-area"class="form-control" id="comment" placeholder="Consulta"
-            formControlName="comment" [class]="isValidField('comment')" style="resize: none;" rows=6></textarea>
-          <!-- agregar minima cantidad de caracteres -->
-        </div>
-        <button *ngIf="!loading" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="userForm.invalid">
-          Enviar
-        </button>
-        <button *ngIf="loading" type="submit" class="btn btn-primary btn-block mb-4" disabled>
-          <div class="d-flex align-items-center">
-            <strong>Enviando...</strong>
-            <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
-          </div>
-        </button>
-      </form>
-</section>
-<section class="col-6">
-  
-  
-  <iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=25%20de%20Mayo%20260%20Piso%201%20depto%207,%20Ushuaia,%20Tierra%20del%20Fuego+(Estudio%20Contable%20-%20Sivila%20y%20Asociados)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-
-</section>
+      </button>
+    </form>
+  </section>
+  <section class="col-12 col-lg-6">
+    <div class="mt-1 sidebar">
+      <div id="leftside-navigation" class="nano">
+        <ul class="nano-content">
+          <li>
+            <a href="javascript:void(0);"><svg version="1.1" id="Capa_1" class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+           <g>
+             <g>
+               <path d="M256,0C156.748,0,76,80.748,76,180c0,33.534,9.289,66.26,26.869,94.652l142.885,230.257
+                 c2.737,4.411,7.559,7.091,12.745,7.091c0.04,0,0.079,0,0.119,0c5.231-0.041,10.063-2.804,12.75-7.292L410.611,272.22
+                 C427.221,244.428,436,212.539,436,180C436,80.748,355.252,0,256,0z M384.866,256.818L258.272,468.186l-129.905-209.34
+                 C113.734,235.214,105.8,207.95,105.8,180c0-82.71,67.49-150.2,150.2-150.2S406.1,97.29,406.1,180
+                 C406.1,207.121,398.689,233.688,384.866,256.818z"/>
+             </g>
+           </g>
+           <g>
+             <g>
+               <path d="M256,90c-49.626,0-90,40.374-90,90c0,49.309,39.717,90,90,90c50.903,0,90-41.233,90-90C346,130.374,305.626,90,256,90z
+                  M256,240.2c-33.257,0-60.2-27.033-60.2-60.2c0-33.084,27.116-60.2,60.2-60.2s60.1,27.116,60.1,60.2
+                 C316.1,212.683,289.784,240.2,256,240.2z"/>
+             </g>
+           </g>
+           </svg><span style="margin: 10px;">25 de Mayo 260, Piso 1 depto 7</span></a>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><svg class="svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 473.806 473.806" style="enable-background:new 0 0 473.806 473.806;" xml:space="preserve">
+           <g>
+             <g>
+               <path d="M374.456,293.506c-9.7-10.1-21.4-15.5-33.8-15.5c-12.3,0-24.1,5.3-34.2,15.4l-31.6,31.5c-2.6-1.4-5.2-2.7-7.7-4
+                 c-3.6-1.8-7-3.5-9.9-5.3c-29.6-18.8-56.5-43.3-82.3-75c-12.5-15.8-20.9-29.1-27-42.6c8.2-7.5,15.8-15.3,23.2-22.8
+                 c2.8-2.8,5.6-5.7,8.4-8.5c21-21,21-48.2,0-69.2l-27.3-27.3c-3.1-3.1-6.3-6.3-9.3-9.5c-6-6.2-12.3-12.6-18.8-18.6
+                 c-9.7-9.6-21.3-14.7-33.5-14.7s-24,5.1-34,14.7c-0.1,0.1-0.1,0.1-0.2,0.2l-34,34.3c-12.8,12.8-20.1,28.4-21.7,46.5
+                 c-2.4,29.2,6.2,56.4,12.8,74.2c16.2,43.7,40.4,84.2,76.5,127.6c43.8,52.3,96.5,93.6,156.7,122.7c23,10.9,53.7,23.8,88,26
+                 c2.1,0.1,4.3,0.2,6.3,0.2c23.1,0,42.5-8.3,57.7-24.8c0.1-0.2,0.3-0.3,0.4-0.5c5.2-6.3,11.2-12,17.5-18.1c4.3-4.1,8.7-8.4,13-12.9
+                 c9.9-10.3,15.1-22.3,15.1-34.6c0-12.4-5.3-24.3-15.4-34.3L374.456,293.506z M410.256,398.806
+                 C410.156,398.806,410.156,398.906,410.256,398.806c-3.9,4.2-7.9,8-12.2,12.2c-6.5,6.2-13.1,12.7-19.3,20
+                 c-10.1,10.8-22,15.9-37.6,15.9c-1.5,0-3.1,0-4.6-0.1c-29.7-1.9-57.3-13.5-78-23.4c-56.6-27.4-106.3-66.3-147.6-115.6
+                 c-34.1-41.1-56.9-79.1-72-119.9c-9.3-24.9-12.7-44.3-11.2-62.6c1-11.7,5.5-21.4,13.8-29.7l34.1-34.1c4.9-4.6,10.1-7.1,15.2-7.1
+                 c6.3,0,11.4,3.8,14.6,7c0.1,0.1,0.2,0.2,0.3,0.3c6.1,5.7,11.9,11.6,18,17.9c3.1,3.2,6.3,6.4,9.5,9.7l27.3,27.3
+                 c10.6,10.6,10.6,20.4,0,31c-2.9,2.9-5.7,5.8-8.6,8.6c-8.4,8.6-16.4,16.6-25.1,24.4c-0.2,0.2-0.4,0.3-0.5,0.5
+                 c-8.6,8.6-7,17-5.2,22.7c0.1,0.3,0.2,0.6,0.3,0.9c7.1,17.2,17.1,33.4,32.3,52.7l0.1,0.1c27.6,34,56.7,60.5,88.8,80.8
+                 c4.1,2.6,8.3,4.7,12.3,6.7c3.6,1.8,7,3.5,9.9,5.3c0.4,0.2,0.8,0.5,1.2,0.7c3.4,1.7,6.6,2.5,9.9,2.5c8.3,0,13.5-5.2,15.2-6.9
+                 l34.2-34.2c3.4-3.4,8.8-7.5,15.1-7.5c6.2,0,11.3,3.9,14.4,7.3c0.1,0.1,0.1,0.1,0.2,0.2l55.1,55.1
+                 C420.456,377.706,420.456,388.206,410.256,398.806z"/>
+               <path d="M256.056,112.706c26.2,4.4,50,16.8,69,35.8s31.3,42.8,35.8,69c1.1,6.6,6.8,11.2,13.3,11.2c0.8,0,1.5-0.1,2.3-0.2
+                 c7.4-1.2,12.3-8.2,11.1-15.6c-5.4-31.7-20.4-60.6-43.3-83.5s-51.8-37.9-83.5-43.3c-7.4-1.2-14.3,3.7-15.6,11
+                 S248.656,111.506,256.056,112.706z"/>
+               <path d="M473.256,209.006c-8.9-52.2-33.5-99.7-71.3-137.5s-85.3-62.4-137.5-71.3c-7.3-1.3-14.2,3.7-15.5,11
+                 c-1.2,7.4,3.7,14.3,11.1,15.6c46.6,7.9,89.1,30,122.9,63.7c33.8,33.8,55.8,76.3,63.7,122.9c1.1,6.6,6.8,11.2,13.3,11.2
+                 c0.8,0,1.5-0.1,2.3-0.2C469.556,223.306,474.556,216.306,473.256,209.006z"/>
+             </g>
+           </g>
+           </svg><span>+54 2901 31123123</span></a>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><svg class="svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+           <g>
+             <g>
+               <path d="M485.743,85.333H26.257C11.815,85.333,0,97.148,0,111.589V400.41c0,14.44,11.815,26.257,26.257,26.257h459.487
+                 c14.44,0,26.257-11.815,26.257-26.257V111.589C512,97.148,500.185,85.333,485.743,85.333z M475.89,105.024L271.104,258.626
+                 c-3.682,2.802-9.334,4.555-15.105,4.529c-5.77,0.026-11.421-1.727-15.104-4.529L36.109,105.024H475.89z M366.5,268.761
+                 l111.59,137.847c0.112,0.138,0.249,0.243,0.368,0.368H33.542c0.118-0.131,0.256-0.23,0.368-0.368L145.5,268.761
+                 c3.419-4.227,2.771-10.424-1.464-13.851c-4.227-3.419-10.424-2.771-13.844,1.457l-110.5,136.501V117.332l209.394,157.046
+                 c7.871,5.862,17.447,8.442,26.912,8.468c9.452-0.02,19.036-2.6,26.912-8.468l209.394-157.046v275.534L381.807,256.367
+                 c-3.42-4.227-9.623-4.877-13.844-1.457C363.729,258.329,363.079,264.534,366.5,268.761z"/>
+             </g>
+           </g>
+           </svg><span>estudio@sivilayasociados.com.ar</span></a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:void(0);"><svg class="svg" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><g><g><path d="m474.697 39.644h-437.394c-20.569 0-37.303 16.734-37.303 37.303v358.105c0 20.569 16.734 37.304 37.303 37.304h437.395c20.568 0 37.303-16.734 37.303-37.304v-358.105c-.001-20.569-16.735-37.303-37.304-37.303zm22.303 83.356h-379.203c-4.143 0-7.5 3.357-7.5 7.5s3.357 7.5 7.5 7.5h379.203v297.053c0 12.299-10.005 22.304-22.303 22.304h-437.394c-12.298-.001-22.303-10.005-22.303-22.304v-297.053h67.737c4.143 0 7.5-3.357 7.5-7.5s-3.357-7.5-7.5-7.5h-67.737v-46.053c0-12.299 10.005-22.304 22.303-22.304h437.395c12.298 0 22.303 10.005 22.303 22.304v46.053z"/><circle cx="65.065" cy="88.822" r="7.477"/><circle cx="100.305" cy="88.822" r="7.477"/><circle cx="135.545" cy="88.822" r="7.477"/><path d="m454.412 81.322h-43.912c-4.143 0-7.5 3.357-7.5 7.5s3.357 7.5 7.5 7.5h43.912c4.143 0 7.5-3.357 7.5-7.5s-3.357-7.5-7.5-7.5z"/><path d="m196.434 322.891c0 4.09 3.315 7.406 7.406 7.406 4.09 0 7.406-3.316 7.406-7.406s-3.316-7.406-7.406-7.406c-4.091 0-7.406 3.316-7.406 7.406z"/><path d="m301.1 322.891c0 4.09 3.316 7.406 7.406 7.406s7.406-3.316 7.406-7.406-3.316-7.406-7.406-7.406-7.406 3.316-7.406 7.406z"/><path d="m176.711 274.354-8.969 25.589-8.828-25.879c-.008-.022-.018-.042-.026-.064-2.355-6.7-11.728-6.614-14.115-.085-.007.018-.016.035-.022.054l-9.344 26.219-8.845-25.735c-1.346-3.917-5.607-6.002-9.53-4.655-3.917 1.346-6.002 5.613-4.655 9.53l15.809 46.001c1.036 3.014 3.863 5.044 7.051 5.062h.042c3.17 0 6-1.994 7.064-4.982l9.318-26.146 8.886 26.05c1.032 3.025 3.87 5.064 7.067 5.078h.031c3.185 0 6.023-2.012 7.078-5.02l16.144-46.056c1.37-3.908-.688-8.188-4.598-9.559-3.906-1.367-8.187.688-9.558 4.598z"/><path d="m281.081 274.354-8.969 25.589-8.828-25.879c-.008-.022-.018-.042-.026-.064-2.317-6.6-11.688-6.722-14.115-.085-.007.018-.016.035-.022.054l-9.344 26.219-8.844-25.735c-1.346-3.918-5.612-6.003-9.53-4.655-3.917 1.346-6.002 5.613-4.655 9.53l15.808 46.001c1.035 3.014 3.863 5.044 7.05 5.062h.043c3.17 0 6-1.994 7.064-4.982l9.318-26.146 8.887 26.051c1.033 3.025 3.87 5.064 7.067 5.078h.031c3.185 0 6.023-2.012 7.078-5.02l16.143-46.056c1.37-3.908-.688-8.188-4.598-9.559-3.905-1.368-8.187.688-9.558 4.597z"/><path d="m385.452 274.354-8.969 25.589-8.828-25.879c-2.326-6.754-11.745-6.701-14.141-.15-.007.018-.016.035-.022.054l-9.345 26.219-8.844-25.735c-1.346-3.918-5.612-6.003-9.53-4.655-3.917 1.346-6.002 5.613-4.655 9.53l15.808 46.001c1.035 3.014 3.863 5.044 7.05 5.062h.043c3.17 0 6-1.993 7.064-4.982l9.318-26.146 8.887 26.051c1.032 3.025 3.87 5.064 7.067 5.078h.031c3.185 0 6.023-2.012 7.078-5.02l16.144-46.056c1.37-3.908-.688-8.188-4.598-9.559-3.906-1.367-8.188.688-9.558 4.598z"/><path d="m58.987 253.146v93.084c0 15.536 12.64 28.176 28.177 28.176h52.581c25.496 39.581 69.129 63.471 116.255 63.471 47.081 0 90.735-23.853 116.255-63.471h54.259c15.537 0 28.177-12.64 28.177-28.176v-29.907c0-4.143-3.357-7.5-7.5-7.5s-7.5 3.357-7.5 7.5v29.907c0 7.266-5.911 13.176-13.177 13.176h-339.35c-7.266 0-13.177-5.91-13.177-13.176v-93.084c0-7.266 5.911-13.177 13.177-13.177h339.351c7.266 0 13.177 5.911 13.177 13.177v27.854c0 4.143 3.357 7.5 7.5 7.5s7.5-3.357 7.5-7.5v-27.854c0-15.537-12.64-28.177-28.177-28.177h-54.26c-25.496-39.579-69.129-63.469-116.255-63.469-47.083 0-90.736 23.855-116.255 63.47h-52.581c-15.537 0-28.177 12.639-28.177 28.176zm264.755 121.26h30.177c-13.303 17.398-31.226 31.394-52.601 39.838 9.845-11.514 17.181-25.626 22.424-39.838zm-60.242 0h44.146c-8.232 20.006-23.065 42.911-44.146 47.63zm-15 0v47.63c-21.094-4.722-35.923-27.648-44.146-47.63zm-60.242 0c5.243 14.21 12.578 28.322 22.424 39.838-21.384-8.447-39.304-22.447-52.601-39.838zm165.654-149.436h-30.17c-5.256-14.246-12.598-28.345-22.423-39.837 21.436 8.468 39.331 22.489 52.593 39.837zm-90.412-47.629c21.094 4.722 35.923 27.648 44.146 47.629h-44.146zm-15 0v47.629h-44.146c8.233-20.006 23.065-42.91 44.146-47.629zm-37.819 7.792c-9.828 11.496-17.169 25.597-22.423 39.837h-30.17c13.26-17.346 31.153-31.367 52.593-39.837z"/></g></g></svg>
+              <span>sivilayasociados.com.ar</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="iframe">
+      <iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=25%20de%20Mayo%20260%20Piso%201%20depto%207,%20Ushuaia,%20Tierra%20del%20Fuego+(Estudio%20Contable%20-%20Sivila%20y%20Asociados)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+    </div>
+    <br>
+    <br>
+    <br>  
+  </div>
+    
+    
+  </section>
 </div>
-
-

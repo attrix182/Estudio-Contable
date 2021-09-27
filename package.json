@@ -26,6 +26,7 @@
     "bootstrapp": "^0.0.0",
     "firebase": "^8.6.8",
     "mdb-angular-ui-kit": "^1.0.0-beta8",
+    "ng-carousel-cdk": "^1.8.0",
     "ngx-hide-on-scroll": "^0.1.0",
     "ngx-page-scroll": "^7.0.5",
     "ngx-page-scroll-core": "^7.0.5",
