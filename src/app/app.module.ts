@@ -25,7 +25,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { CarouselModule } from 'ng-carousel-cdk';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +41,7 @@ import { CarouselModule } from 'ng-carousel-cdk';
     LinksComponent,
     AdminPanelComponent,
     AddPostComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -53,7 +54,8 @@ import { CarouselModule } from 'ng-carousel-cdk';
     NgbModule,
     CarouselModule,
     IvyCarouselModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule
     ],
     exports:[CarouselModule],
   providers: [],

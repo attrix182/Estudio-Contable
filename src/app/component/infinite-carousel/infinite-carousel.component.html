@@ -1,9 +1,21 @@
 <ng-carousel
-    #carouselRef="ngCarousel"
-    [config]="config">
-    <ng-template
-        [ngCarouselSlide]="carouselRef"
-        let-item>
-        {{item.name}}
-    </ng-template>
-</ng-carousel>
+        #carouselRef="ngCarousel"
+        [config]="config"
+        (itemIndexChange)="setItemIndex($event)"
+        class="carousel-block">
+        <ng-template
+            [ngCarouselSlide]="carouselRef"
+            let-item
+            let-active="isActive"
+            let-activeOnTheRight="activeOnTheRight"
+            let-activeOnTheLeft="activeOnTheLeft">
+            <div
+                [class.active]="active"
+                [style.background-image]="item.image"
+                class="carousel-slide">
+                <h2>
+                    {{item.name}}
+                </h2>
+            </div>
+        </ng-template>
+    </ng-carousel>
