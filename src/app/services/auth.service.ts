@@ -1,12 +1,16 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app'
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
- 
+  public user: firebase.User
+
   currentUser: any;
   public isLogged: any = false;
 
@@ -14,29 +18,19 @@ export class AuthService {
     afAuth.authState.subscribe(user => (this.isLogged = user));
   }
 
-  async onLogin(user: any): Promise<Boolean> {
-    return this.afAuth.signInWithEmailAndPassword(user.correo, user.clave)
-      .then((userCredential) => {
-        localStorage.setItem('token', userCredential.user.uid)
-        return true
-      })
-      .catch((error) => {
-        switch (error.code) {
-          case "auth/user-not-found":
-            console.log('error', "email invalido");
-            break;
-          case "auth/wrong-password":
-            console.log('error', "clave invalida");
-            break;
-          case "auth/too-many-requests":
-            console.log('error', "A realizados demaciados intentos")
-        }
-        return false
-      });
+  async onLogin(user: any) {
+
+    const result = await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then((userCredential) => {
+      localStorage.setItem('token', userCredential.user.uid)
+      return true
+    })
+    console.log(result);
+    return result;
   }
 
 
-  async onRegister(user: any){
+
+  async onRegister(user: any) {
     try {
       return await this.afAuth.createUserWithEmailAndPassword(user.correo, user.clave);
     }
@@ -47,7 +41,7 @@ export class AuthService {
   }
 
   GetCurrentUser() {
-    return this.afAuth.currentUser;
+    return this.afAuth.authState.pipe(first()).toPromise();
   }
 
   LogOutCurrentUser() {
