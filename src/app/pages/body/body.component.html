@@ -1,6 +1,6 @@
 <app-nav-bar (showNavBar)="hiddeLogo($event)"></app-nav-bar>
-<div id="img__logo" class="container" style="position: relative;">
-  <img id=nav__logo-img #nav__logo_img src="../../../assets/logo.jpg" alt="logo sivila" srcset=""
+<div id="img__logo" class="container " style="position: relative;">
+  <img id=nav__logo-img #nav__logo_img src="../../../assets/logo.jpg" class="effect" alt="logo sivila" srcset=""
     style="position: absolute; z-index: 200; width: 10em ;">
 </div>
 <!--Video-->
@@ -18,15 +18,17 @@
 <!--Main-->
 <main class="main">
   <div class="container">
+    <hr class="my-5" id="news" />
     <!--Section: News-->
-    <app-news id="news" class="news m-3"></app-news>
+    <app-news  class="news m-3"></app-news>
     <!--Section: News-->
+    <hr class="my-5" id="about" />
     <!--Section: About-->
-    <app-about class="about" id="about"></app-about>
+    <app-about class="about" ></app-about>
     <!--Section: About-->
-    <hr class="my-5" />
+    <hr class="my-5" id="contact"/>
     <!--Section: Contact-->
-    <app-contact id="contact"></app-contact>
+    <app-contact></app-contact>
     <!--Section: Contact-->
   </div>
 </main>
