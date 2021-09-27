@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'estudioContable';
+  title = 'estudioContable';/* 
   images = [
     {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
     {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
@@ -31,5 +31,5 @@ imagesForSlider = [
   {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
   {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
   {path: 'https://mdbootstrap.com/img/new/standard/nature/184.jpg'},
-];
+]; */
 }

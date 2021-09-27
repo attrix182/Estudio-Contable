@@ -24,6 +24,7 @@ import { AddPostComponent } from './pages/add-post/add-post.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { CarouselModule } from 'ng-carousel-cdk';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,6 @@ import { environment } from 'src/environments/environment';
     LinksComponent,
     AdminPanelComponent,
     AddPostComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -51,9 +51,11 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    CarouselModule,
     IvyCarouselModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
+    exports:[CarouselModule],
   providers: [],
   bootstrap: [AppComponent]
 })
