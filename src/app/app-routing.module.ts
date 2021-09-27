@@ -11,18 +11,22 @@ import { CheckLoginGuard } from './shared/guard/check-login.guard';
 
 const routes: Routes = [
 
-  { path: '', component: BodyComponent },
+  { path: '', component: BodyComponent,pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'panel', component: AdminPanelComponent,
     canActivate: [CheckLoginGuard]
   },
 
-  { path: '**', component: BodyComponent },
+  { 
+    path: '**', redirectTo: '' 
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
