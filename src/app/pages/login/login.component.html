@@ -17,16 +17,16 @@
 
 
   <label for="inputEmail" class="sr-only" >Email</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="correo" required autofocus>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email" required autofocus>
   <label for="inputPassword" class="sr-only">Clave</label>
-  <input type="password" id="inputPassword" class="form-control" formControlName="clave"  placeholder="Clave" required>
+  <input  type="password" id="inputPassword" class="form-control" formControlName="password"  placeholder="Clave" required>
   <div class="checkbox mb-3">
 
     <label>
       <input type="checkbox" value="remember-me"> Mantener sesion
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" (click)="onLogin()">INICIAR SESION</button>
+  <button [disabled]="formLogin.invalid" class="btn btn-lg btn-primary btn-block" (click)="onLogin()">INICIAR SESION</button>
   <p class="mt-5 mb-3 text-muted">&copy;</p>
 </div>
 

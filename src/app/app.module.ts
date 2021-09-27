@@ -1,3 +1,4 @@
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -54,8 +55,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     CarouselModule,
     IvyCarouselModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireAuthModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
     exports:[CarouselModule],
   providers: [],

@@ -14,7 +14,8 @@ export class InfiniteCarouselComponent implements OnInit {
     
   }
   config: CarouselConfig<CarouselItem> = {
-    slideWidth: 18,
+    widthMode: CarouselWidthMode.PX,
+    slideWidth: 155,
     transitionDuration: 2500,
     alignMode: CarouselAlignMode.CENTER,
     shouldLoop: true,
@@ -22,13 +23,14 @@ export class InfiniteCarouselComponent implements OnInit {
     autoplayEnabled: true,
     dragEnabled: true,
     shouldRecalculateOnResize: true,
-    recalculateDebounce: 300,
+    recalculateDebounce: 0,
+    autoplayDelay: 2500,
 };
   
 private assignItems(quantity: number): CarouselItem[] {
   const items = [];
   for (let i = 0; i < quantity; i++) {
-      items.push({name: i + 1, image: `url(https://via.placeholder.com/150)`});
+      items.push({name: i + 1, image: `https://image.freepik.com/free-photo/top-view-world-tourism-day-concept_23-2148608817.jpg`});
   }
 
   return items;

@@ -1,4 +1,5 @@
-<ng-carousel
+<div class="container-xl" style="padding: 0;">
+    <ng-carousel
         #carouselRef="ngCarousel"
         [config]="config"
         (itemIndexChange)="setItemIndex($event)"
@@ -8,14 +9,14 @@
             let-item
             let-active="isActive"
             let-activeOnTheRight="activeOnTheRight"
-            let-activeOnTheLeft="activeOnTheLeft">
+            let-activeOnTheLeft="activeOnTheLeft"
+            style="object-fit: contain;">
             <div
                 [class.active]="active"
-                [style.background-image]="item.image"
                 class="carousel-slide">
-                <h2>
-                    {{item.name}}
-                </h2>
+                <img [src]="item.image" alt="" style="height: 150px; object-fit: cover;">
             </div>
         </ng-template>
     </ng-carousel>
+</div>
+    <!-- [style.background-image]="item.image" -->

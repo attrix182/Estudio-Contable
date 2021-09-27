@@ -12,44 +12,43 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  public email: string = '';
-  public clave: string = '';
-
-
   public user: any = {};
   public formLogin: FormGroup;
 
 
   constructor(private auth: AuthService, private FB: FormBuilder, private router: Router, private alertSVC: AlertService) {
-    this.email = ''
+
   }
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({
-      'correo': new FormControl(''),
-      'clave': new FormControl('')
+      'email': new FormControl(''),
+      'password': new FormControl('')
     });
 
     this.formLogin = this.FB.group({
 
-      'correo': ['', Validators.required],
-      'clave': ['', Validators.required]
+      'email': ['', Validators.required],
+      'password': ['', Validators.required]
     })
   }
 
 
 
-  onLogin() {
 
+
+  async onLogin() {
     this.user = this.formLogin.value;
-
-    console.log(this.user)
-    this.auth.onLogin(this.user)
-      .then(res => {
-
-        res == true ? this.router.navigateByUrl('/panel') : this.alertSVC.alertBottom('error', 'Usuario o contraseña incorrectos');
-      })
+    try {
+      const user = await this.auth.onLogin(this.user);
+      if (user) {
+        this.router.navigate(['/panel']);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
+
 
 
 
