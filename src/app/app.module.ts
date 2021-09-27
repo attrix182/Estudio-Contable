@@ -21,7 +21,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login/login.component';
 import { LinksComponent } from './component/links/links.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
-import { AddPostComponent } from './pages/add-post/add-post.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -39,8 +38,7 @@ import { environment } from 'src/environments/environment';
     InfiniteCarouselComponent,
     LoginComponent,
     LinksComponent,
-    AdminPanelComponent,
-    AddPostComponent,
+    AdminPanelComponent
     
   ],
   imports: [
