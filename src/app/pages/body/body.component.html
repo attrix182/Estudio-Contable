@@ -5,9 +5,11 @@
 </div>
 <!--Video-->
 <section class="containVideo" id="home" style="position: relative;">
-  <video class="fullscreen" autoplay muted loop preload="true" id="vid">
+
+  <video class="fullscreen" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" id="vid">
     <source  src="../../../assets/video/pexels-mikhail-nilov-6963480.mp4" type="video/mp4">
   </video>
+
 </section>
 <!--Video-->
 
