@@ -19,20 +19,20 @@
 
       <div class="card effect" (click)="abrirModalPost(post)">
 
-        <div *ngIf="post.img" class="card-img-top" >
+        <div *ngIf="post.img" class="card-img-top">
           <img src="{{post.img}}" />
         </div>
 
-        
+
         <div *ngIf="!post.img" class="card-img-top">
-          <img  src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" />
+          <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" />
         </div>
 
 
         <div class="card-body">
           <h4 class="title">{{post.titulo}}</h4>
           <h6 class="subtitle">{{post.subtitulo}}</h6>
-      
+
         </div>
       </div>
     </div>
@@ -45,11 +45,13 @@
 <ng-template #modalPost let-modal>
 
   <div class="modal-body">
-    <div *ngIf="showPost.img" class="card-img-top" >
+    <i (click)="modal.dismiss('Cross click')" class="btn btn-white"><i class="fas fa-times"></i> </i>
+
+    <div *ngIf="showPost.img" class="card-img-top">
       <img src="{{showPost.img}}" class="img-fluid" />
     </div>
 
-    <div *ngIf="!showPost.img" class="card-img-top" >
+    <div *ngIf="!showPost.img" class="card-img-top">
       <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" class="img-fluid" />
     </div>
 
@@ -63,6 +65,7 @@
   </div>
 
   <div class="modal-footer">
+
     <small class="text-right mt-3">Publicado el: {{showPost.fecha}}</small>
   </div>
 
