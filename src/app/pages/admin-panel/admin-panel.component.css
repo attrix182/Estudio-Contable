@@ -138,7 +138,7 @@ textarea::-webkit-scrollbar-thumb {
   resize: none;
   border: none;
   border-radius: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 .subtitle::placeholder,
