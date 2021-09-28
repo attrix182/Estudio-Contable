@@ -1,9 +1,22 @@
 <section class="news text-center container">
+
+
+
+
   <h3 class="text-center mb-1"><strong>Novedades</strong></h3>
+
+
+  <div *ngIf="posts == 0" class="spinner-border mt-4" role="status">
+
+  </div>
+
   <carousel [loop]='true' [autoplay]='false' [height]="400" [cellsToScroll]='1' [objectFit]="'cover'" [lightDOM]="true"
     [cellsToShow]='test' [overflowCellsLimit]='3' [dots]="true" [objectFit]="'cover'">
 
     <div class="carousel-cell" *ngFor="let post of posts">
+
+
+
       <div class="card effect" (click)="abrirModalPost(post)">
 
         <div *ngIf="post.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
