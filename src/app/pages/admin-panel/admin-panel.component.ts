@@ -27,6 +27,10 @@ export class AdminPanelComponent implements OnInit {
 
   postFinal: any;
 
+  imgResultBeforeCompress:string;
+
+  imgResultAfterCompress:string;
+
   constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
     private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService) {
 
@@ -103,5 +107,26 @@ export class AdminPanelComponent implements OnInit {
     this.router.navigateByUrl('/');
 
   }
+
+  /* compressFile() {
+  
+    this.imageCompress.uploadFile().then(({image, orientation}) => {
+    
+      this.imgResultBeforeCompress = image;
+      console.warn('Size in bytes was:', this.imageCompress.byteCount(image));
+      
+      this.imageCompress.compressFile(image, orientation, 75, 50).then(
+        result => {
+          console.log(result);
+          this.imgResultAfterCompress = result;
+          console.warn('Size in bytes is now:', this.imageCompress.byteCount(result));
+        }
+      );
+      
+    });
+    
+  } */
+
+
 
 }
