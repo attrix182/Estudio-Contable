@@ -7,7 +7,15 @@ carousel{
     height: 360px;
     margin: auto;
 }
-
+.title{
+    font-size: 1.6rem;
+}
+.subtitle{
+    font-size: 1.1rem;
+}
+.text{
+    font-size: .9rem;
+}
 .carousel-cell{
     margin: 0;
     padding: 0;
