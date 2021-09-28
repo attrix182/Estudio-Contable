@@ -30,6 +30,7 @@
     "mdb-angular-ui-kit": "^1.0.0-beta8",
     "ng-carousel-cdk": "^1.8.0",
     "ngx-hide-on-scroll": "^0.1.0",
+    "ngx-image-compress": "^11.0.3",
     "ngx-page-scroll": "^7.0.5",
     "ngx-page-scroll-core": "^7.0.5",
     "rxjs": "~6.6.0",
