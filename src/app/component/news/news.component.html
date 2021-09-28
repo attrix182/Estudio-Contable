@@ -19,12 +19,12 @@
 
       <div class="card effect" (click)="abrirModalPost(post)">
 
-        <div *ngIf="post.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <div *ngIf="post.img" class="" >
           <img src="{{post.img}}" />
         </div>
 
         
-        <div *ngIf="!post.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <div *ngIf="!post.img" >
           <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" />
         </div>
 
