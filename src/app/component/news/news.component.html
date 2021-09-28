@@ -19,22 +19,20 @@
 
       <div class="card effect" (click)="abrirModalPost(post)">
 
-        <div *ngIf="post.img" class="" >
+        <div *ngIf="post.img" class="card-img-top" >
           <img src="{{post.img}}" />
         </div>
 
         
-        <div *ngIf="!post.img" >
-          <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" />
+        <div *ngIf="!post.img" class="card-img-top">
+          <img  src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" />
         </div>
 
 
         <div class="card-body">
           <h4 class="card-title">{{post.titulo}}</h4>
           <h6>{{post.subtitulo}}</h6>
-          <p class="card-text">
-          </p>
-
+      
         </div>
       </div>
     </div>
@@ -47,11 +45,11 @@
 <ng-template #modalPost let-modal>
 
   <div class="modal-body">
-    <div *ngIf="showPost.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    <div *ngIf="showPost.img" class="card-img-top" >
       <img src="{{showPost.img}}" class="img-fluid" />
     </div>
 
-    <div *ngIf="!showPost.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    <div *ngIf="!showPost.img" class="card-img-top" >
       <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" class="img-fluid" />
     </div>
 
