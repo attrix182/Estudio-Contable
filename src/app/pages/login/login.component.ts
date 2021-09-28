@@ -42,7 +42,17 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/panel']);
       }
     } catch (error) {
-      console.log(error);
+
+      switch (error.code) {
+        case "auth/user-not-found":
+          this.alertSVC.alertBottom('error', "Usuario inexistente");
+          break;
+        case "auth/wrong-password":
+          this.alertSVC.alertBottom('error', "Usuario inexistente");
+          break;
+        case "auth/too-many-requests":
+          this.alertSVC.alertBottom('error', "Se ha intentado ingresar sin exito varias veces, espere unos minutos y vuelva a intentarlo")
+      }
     }
   }
 
