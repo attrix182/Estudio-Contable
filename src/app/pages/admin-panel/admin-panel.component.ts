@@ -15,8 +15,8 @@ import { FireService } from 'src/app/services/fire.service';
 export class AdminPanelComponent implements OnInit {
 
 
-  @ViewChild('modaladdPost', { read: TemplateRef })
-  modaladdPost: TemplateRef<any>
+  @ViewChild('modalPost', { read: TemplateRef })
+  modalPost: TemplateRef<any>
 
   filePath: string;
   myForm: FormGroup;
@@ -24,14 +24,14 @@ export class AdminPanelComponent implements OnInit {
 
 
   constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
-    private modalService: NgbModal,private FB: FormBuilder, private vref: ViewContainerRef, private fire: FireService) {
+    private modalService: NgbModal, private FB: FormBuilder, private vref: ViewContainerRef, private fire: FireService) {
 
 
     this.post = new FormGroup({
       'titulo': new FormControl(''),
       'subtitulo': new FormControl(''),
       'contenido': new FormControl('')
-      
+
     });
 
     this.post = this.FB.group({
@@ -45,14 +45,19 @@ export class AdminPanelComponent implements OnInit {
   }
 
 
+  ngOnInit(): void { }
+
+
+
+
   imagePreview(e) {
     const file = (e.target as HTMLInputElement).files[0];
 
-    this.myForm.patchValue({
+    this.post.patchValue({
       img: file
     });
 
-    this.myForm.get('img').updateValueAndValidity()
+    this.post.get('img').updateValueAndValidity()
 
     const reader = new FileReader();
     reader.onload = () => {
@@ -61,18 +66,13 @@ export class AdminPanelComponent implements OnInit {
     reader.readAsDataURL(file)
   }
 
-  ngOnInit(): void { }
 
-  logOut() {
-    this.authService.LogOutCurrentUser();
-    this.router.navigateByUrl('/');
-
-  }
 
 
   writePost() {
-    this.modalService.open(this.modaladdPost)
+    this.modalService.open(this.modalPost)
   }
+
 
   addPost() {
     //arreglar fecha de publicacion
@@ -81,6 +81,13 @@ export class AdminPanelComponent implements OnInit {
 
     this.fire.Insert('posts', this.post.value);
     this.modalService.dismissAll();
+
+  }
+
+
+  logOut() {
+    this.authService.LogOutCurrentUser();
+    this.router.navigateByUrl('/');
 
   }
 
