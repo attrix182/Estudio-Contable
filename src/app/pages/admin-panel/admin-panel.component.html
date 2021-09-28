@@ -38,31 +38,34 @@
 <ng-template #modaladdPost let-modal>
   <form [formGroup]="post">
 
-    <div class="banner">
+    <div class="modal-body">
 
-      <div *ngIf="filePath && filePath !== ''">
-        <img [src]="filePath" [alt]="myForm.value.name" class="imgCover">
+
+      <div class="banner">
+
+        <div *ngIf="filePath && filePath !== ''">
+          <img [src]="filePath" [alt]="myForm.value.name" class="imgCover">
+        </div>
+
+        <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)" hidden>
+        <label for="banner-upload" class="banner-upload-btn"><img
+            src="https://raw.githubusercontent.com/kunaal438/blogging-site/master/public/img/upload.png"
+            alt="upload banner"></label>
       </div>
 
-      <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)" hidden>
-      <label for="banner-upload" class="banner-upload-btn"><img
-          src="https://raw.githubusercontent.com/kunaal438/blogging-site/master/public/img/upload.png"
-          alt="upload banner"></label>
-    </div>
+      <textarea type="text" class="text-center mt-3 title" formControlName="titulo" placeholder="Titulo..."></textarea>
 
-    <div class="blog">
-      <textarea type="text" class="title" formControlName="titulo" placeholder="Titulo..."></textarea>
-      <textarea type="text" class="subtitle" formControlName="subtitulo" placeholder="Subitulo..."></textarea>
+      <textarea type="text" class="text-left subtitle" formControlName="subtitulo" placeholder="Subitulo..."></textarea>
       <textarea type="text" class="article" formControlName="contenido" placeholder="Empiece a escribir..."></textarea>
+
     </div>
 
     <div class="blog-options">
-      <button class="btn dark publish-btn" [disabled]="post.invalid" (click)="addPost()">Publicar</button>
-      <input type="file" id="image-upload" accept="image/*" (change)="imagePreview($event)" hidden>
-      <label for="image-upload" class="btn grey upload-btn">Subir Imagen <i class="fa fa-upload"></i></label>
-    </div>
+      <button class="btn dark publish-btn" *ngIf="post.invalid" [disabled]="post.invalid"
+        (click)="addPost()">Publicar</button>
 
-    <button type="submit">Upload</button>
+      <button class="btn dark publish-btn success" *ngIf="!post.invalid" (click)="addPost()">Publicar</button>
+    </div>
   </form>
 
 </ng-template>
