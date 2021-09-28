@@ -40,9 +40,9 @@
             transition: all 200ms ease-in;
             cursor: pointer;
             &:hover {
-              color: #960332;
+              color: rgb(255, 114, 142);
               .svg {
-                fill: #960332;
+                fill: rgb(255, 114, 142);
               }
             }
             span {
