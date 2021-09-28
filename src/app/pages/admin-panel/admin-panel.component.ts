@@ -22,6 +22,9 @@ export class AdminPanelComponent implements OnInit {
   myForm: FormGroup;
   post: FormGroup;
 
+  photo: File;
+
+  postFinal: any;
 
   constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
     private modalService: NgbModal, private FB: FormBuilder, private vref: ViewContainerRef, private fire: FireService) {
@@ -53,6 +56,8 @@ export class AdminPanelComponent implements OnInit {
   imagePreview(e) {
     const file = (e.target as HTMLInputElement).files[0];
 
+    this.photo = (e.target as HTMLInputElement).files[0];
+
     this.post.patchValue({
       img: file
     });
@@ -68,18 +73,21 @@ export class AdminPanelComponent implements OnInit {
 
 
 
-
   writePost() {
     this.modalService.open(this.modalPost)
   }
 
 
   addPost() {
-    //arreglar fecha de publicacion
     var date = new Date();
     this.post.value.fecha = date.getTime();
 
-    this.fire.Insert('posts', this.post.value);
+    this.postFinal =  this.post.value
+
+    this.postFinal.img = this.photo;
+
+    this.fire.InsertPost('posts', this.postFinal);
+
     this.modalService.dismissAll();
 
   }

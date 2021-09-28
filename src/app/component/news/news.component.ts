@@ -1,7 +1,6 @@
 
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, TemplateRef, ViewContainerRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { PostsService } from 'src/app/services/posts.service';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FireService } from 'src/app/services/fire.service';

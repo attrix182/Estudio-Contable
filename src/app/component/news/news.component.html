@@ -5,9 +5,17 @@
 
     <div class="carousel-cell" *ngFor="let post of posts">
       <div class="card effect" (click)="abrirModalPost(post)">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" />
+
+        <div *ngIf="post.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="{{post.img}}" />
         </div>
+
+        
+        <div *ngIf="!post.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" />
+        </div>
+
+
         <div class="card-body">
           <h4 class="card-title">{{post.titulo}}</h4>
           <h6>{{post.subtitulo}}</h6>
@@ -26,9 +34,15 @@
 <ng-template #modalPost let-modal>
 
   <div class="modal-body">
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+    <div *ngIf="showPost.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="{{showPost.img}}" class="img-fluid" />
     </div>
+
+    <div *ngIf="!showPost.img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" class="img-fluid" />
+    </div>
+
+
 
     <h1 class="text-center mt-3">{{showPost.titulo}}</h1>
 
