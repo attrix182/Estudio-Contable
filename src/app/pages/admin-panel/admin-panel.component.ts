@@ -1,3 +1,4 @@
+import { AlertService } from './../../services/alert.service';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, TemplateRef, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -27,7 +28,7 @@ export class AdminPanelComponent implements OnInit {
   postFinal: any;
 
   constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
-    private modalService: NgbModal, private FB: FormBuilder, private vref: ViewContainerRef, private fire: FireService) {
+    private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService) {
 
 
     this.post = new FormGroup({
@@ -82,14 +83,18 @@ export class AdminPanelComponent implements OnInit {
     var date = new Date();
     this.post.value.fecha = date.getTime();
 
-    this.postFinal =  this.post.value
+    this.postFinal = this.post.value
 
     this.postFinal.img = this.photo;
 
     this.fire.InsertPost('posts', this.postFinal);
 
-    this.modalService.dismissAll();
+    //clear form post
+    this.post.reset();
+    this.filePath = null;
 
+    this.modalService.dismissAll();
+    this.AlertService.alertTop('success', 'Post agregado con exito');
   }
 
 

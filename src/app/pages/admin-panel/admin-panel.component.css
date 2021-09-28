@@ -113,7 +113,7 @@ textarea::-webkit-scrollbar-thumb {
   min-height: 100px;
   height: auto;
   outline: none;
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: 600;
   color: #2d2d2d;
   resize: none;
@@ -132,7 +132,7 @@ textarea::-webkit-scrollbar-thumb {
   min-height: 100px;
   height: auto;
   outline: none;
-  font-size: 1.6em;
+  font-size: 1.5em;
   font-weight: 600;
   color: #2d2d2d;
   resize: none;
@@ -148,7 +148,7 @@ textarea::-webkit-scrollbar-thumb {
 
 .article {
   height: 500px;
-  font-size: 18px;
+  font-size: 1.1em;
   font-weight: 450;
 
 }
