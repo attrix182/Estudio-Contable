@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -21,15 +20,13 @@ export class NewsComponent implements OnInit {
 
   public showPost: any = "";
 
-  public userLog = null;
-  public permission: boolean = false;
 
   @Output() selectedPost: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
-  constructor(private fire: FireService, private router: Router, private cdref: ChangeDetectorRef,
+  constructor(private fire: FireService, private router: Router,
     private modalService: NgbModal, private vref: ViewContainerRef, private auth: AuthService) {
     if (window.screen.width > 200) {
       this.test = 1;
@@ -54,9 +51,6 @@ export class NewsComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    this.permission = this.validateSession();
-  }
 
 
 
@@ -69,26 +63,7 @@ export class NewsComponent implements OnInit {
     });
   }
 
-  validateSession(): boolean {
 
-
-    const user = this.auth.isLogged
-
-    let permission: boolean = false;
-
-    if (user) {
-
-      if (user.uid == 'WlrtJzdd08PKdvD9NxyOvRHj0N62') {
-
-        permission = true;
-      }
-      else {
-        permission = false;
-      }
-    }
-    return permission;
-
-  }
 
   orderPostsByDate() {
 
