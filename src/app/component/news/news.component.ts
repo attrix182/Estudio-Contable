@@ -55,7 +55,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-      this.permission = this.validateSession();
+    this.permission = this.validateSession();
   }
 
 
