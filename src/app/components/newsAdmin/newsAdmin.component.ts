@@ -98,13 +98,9 @@ export class NewsAdminComponent implements OnInit {
     this.modalService.open(this.modalPost)
   }
 
-  deletePost(post) {
+  async deletePost(post) {
     let confirm:any = false;
-
-
-    confirm = this.alertSvc.confirmAlert();
-    console.log(confirm)
-    
+    confirm = await this.alertSvc.confirmAlert();
     if (confirm) {
       this.fire.Delete('posts', post.id).then(() => {
         this.modalService.dismissAll();

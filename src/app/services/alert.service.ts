@@ -72,24 +72,26 @@ export class AlertService {
     })
   }
 
-  confirmAlert() {
-    let confirm = false;
-
-    Swal.fire({
-      title: '¿Esta seguro?',
-      showDenyButton: true,
-
-      confirmButtonText: 'Si',
-      denyButtonText: `Cancelar`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        confirm = true;
-        Swal.fire('Post eliminado', '', 'info')
-
-      }
+  confirmAlert()
+  {
+  
+    return new Promise((resolve)=>{
+      Swal.fire({
+        title: '¿Esta seguro?',
+        showDenyButton: true,
+  
+        confirmButtonText: 'Si',
+        denyButtonText: `Cancelar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          resolve(true);
+          Swal.fire('Post eliminado', '', 'info')
+        } 
+        resolve(false);
+      })
     })
-    return true;
+
   }
 
 
