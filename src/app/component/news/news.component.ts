@@ -8,7 +8,7 @@ import { FireService } from 'src/app/services/fire.service';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
 

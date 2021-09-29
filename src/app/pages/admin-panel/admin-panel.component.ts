@@ -25,7 +25,7 @@ export class AdminPanelComponent implements OnInit {
   post: FormGroup;
 
   photo: File;
-
+  seleccionoFoto:boolean=true;
   postFinal: any;
 
   imgResultBeforeCompress:string;
@@ -106,12 +106,13 @@ export class AdminPanelComponent implements OnInit {
   compressFile() {
     this.imageCompress.uploadFile().then(({image, orientation}) => {
       this.imgResultBeforeCompress = image;
-      console.warn('Size in bytes was:', this.imageCompress.byteCount(image));
+      /* console.warn('Size in bytes was:', this.imageCompress.byteCount(image)); */
       this.imageCompress.compressFile(image, orientation, 50, 40).then(
         result => {
-          console.log(result);
+          /* console.log(result); */
           this.imgResultAfterCompress = result;
-          console.warn('Size in bytes is now:', this.imageCompress.byteCount(result));
+          this.seleccionoFoto=false;
+          /* console.warn('Size in bytes is now:', this.imageCompress.byteCount(result)); */
         }
       );
     });

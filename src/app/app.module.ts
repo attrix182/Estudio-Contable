@@ -56,7 +56,7 @@ import {NgxImageCompressService} from 'ngx-image-compress';
     IvyCarouselModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
     exports:[CarouselModule],
   providers: [NgxImageCompressService],
