@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,9 @@ export class FireService {
   public foto: any;
 
   constructor(private cloudFireStore: AngularFirestore,
-    private storage: AngularFireStorage) { }
-
+    private storage: AngularFireStorage,private imageCompress: NgxImageCompressService) { }
+    imgResultBeforeCompress:string;
+  imgResultAfterCompress:string;
   Insert(collectionName: string, data: any) {
     const id = this.cloudFireStore.createId();
     data.id = id;
@@ -53,10 +55,8 @@ export class FireService {
     post.id = this.cloudFireStore.createId();
 
     if (post.img) {
-      const filePath = `/usuarios/${post.id}/1.png`;
-      const ref = this.storage.ref(filePath);
-      const task = this.storage.upload(filePath, post.img).then(() => {
-
+      const filePath = `/usuarios/${post.id}/image.jpeg`;
+      const ref = this.storage.ref(filePath).putString(post.img,'base64',{contentType:'image/jpeg'}).then(()=>{
         let storages = firebase.default.storage();
         let storageRef = storages.ref();
         let spaceRef = storageRef.child(filePath);
@@ -71,8 +71,32 @@ export class FireService {
 
         });
       });
+      /* const task = this.storage.upload(filePath, post.img).then(() => {
+ */
+        
+      /* }); */
     }
   }
+
+
+  /* compressFile() {
+  
+    this.imageCompress.uploadFile().then(({image, orientation}) => {
+    
+      this.imgResultBeforeCompress = image;
+      console.warn('Size in bytes was:', this.imageCompress.byteCount(image));
+      
+      this.imageCompress.compressFile(image, orientation, 50, 50).then(
+        result => {
+          this.imgResultAfterCompress = result;
+          console.warn('Size in bytes is now:', this.imageCompress.byteCount(result));
+        }
+      );
+      
+    });
+    
+  } */
+
 }
 
 

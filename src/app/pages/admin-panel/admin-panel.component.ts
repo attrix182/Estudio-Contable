@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
 
+import {DOC_ORIENTATION, NgxImageCompressService} from 'ngx-image-compress';
 
 @Component({
   selector: 'app-admin-panel',
@@ -27,8 +28,12 @@ export class AdminPanelComponent implements OnInit {
 
   postFinal: any;
 
+  imgResultBeforeCompress:string;
+
+  imgResultAfterCompress:string;
+
   constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
-    private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService) {
+    private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService,private imageCompress: NgxImageCompressService) {
 
 
     this.post = new FormGroup({
@@ -82,17 +87,12 @@ export class AdminPanelComponent implements OnInit {
   addPost() {
     var date = new Date();
     this.post.value.fecha = date.getTime();
-
     this.postFinal = this.post.value
-
-    this.postFinal.img = this.photo;
-
+    this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
     this.fire.InsertPost('posts', this.postFinal);
-
     //clear form post
     this.post.reset();
     this.filePath = null;
-
     this.modalService.dismissAll();
     this.AlertService.alertTop('success', 'Post agregado con exito');
   }
@@ -102,7 +102,20 @@ export class AdminPanelComponent implements OnInit {
     
     this.authService.LogOutCurrentUser();
     this.router.navigateByUrl('/');
+  }
 
+  compressFile() {
+    this.imageCompress.uploadFile().then(({image, orientation}) => {
+      this.imgResultBeforeCompress = image;
+      console.warn('Size in bytes was:', this.imageCompress.byteCount(image));
+      this.imageCompress.compressFile(image, orientation, 50, 40).then(
+        result => {
+          console.log(result);
+          this.imgResultAfterCompress = result;
+          console.warn('Size in bytes is now:', this.imageCompress.byteCount(result));
+        }
+      );
+    });
   }
 
 }

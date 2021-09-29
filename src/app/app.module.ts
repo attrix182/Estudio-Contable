@@ -26,6 +26,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { CarouselModule } from 'ng-carousel-cdk';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxImageCompressService} from 'ngx-image-compress';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
     exports:[CarouselModule],
-  providers: [],
+  providers: [NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
