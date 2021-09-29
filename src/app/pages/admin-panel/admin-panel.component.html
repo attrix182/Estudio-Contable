@@ -37,12 +37,8 @@
 
 <ng-template #modalPost let-modal>
   <form [formGroup]="post">
-
     <div class="modal-body">
-
-
       <div class="banner">
-
         <div *ngIf="this.imgResultAfterCompress && this.imgResultAfterCompress !== ''">
           <img [src]="imgResultAfterCompress" [alt]="post.value.name" class="imgCover">
         </div>
@@ -50,23 +46,17 @@
         <!-- <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)"  > -->
         <label for="banner-upload" class="banner-upload-btn"><i class="fa fa-upload"></i></label>
       </div>
-
       <textarea type="text" class="text-center mt-3 title" formControlName="titulo" placeholder="Titulo..."></textarea>
-
       <textarea type="text" class="text-left subtitle" formControlName="subtitulo" placeholder="Subitulo..."></textarea>
       <textarea type="text" class="article" formControlName="contenido" placeholder="Empiece a escribir..."></textarea>
-
     </div>
 
     <div class="blog-options">
       <button class="btn dark publish-btn" *ngIf="post.invalid" [disabled]="post.invalid"
         (click)="addPost()">Publicar</button>
-
       <button class="btn dark publish-btn success" *ngIf="!post.invalid" (click)="addPost()">Publicar</button>
     </div>
   </form>
-
-
 </ng-template>
 <!-- <img *ngIf="imgResultBeforeCompress" [src]="imgResultBeforeCompress" alt="" style="width: 100px;">
 <img *ngIf="imgResultAfterCompress" [src]="imgResultAfterCompress" alt="" style="width: 100px;"> -->
