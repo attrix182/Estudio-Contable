@@ -11,6 +11,9 @@ video.fullscreen {
      display:none !important;
   }
 }
+.main{
+   background-color: #955E70;
+}
 
 .containVideo {
    position: relative;
@@ -19,7 +22,6 @@ video.fullscreen {
    height: 30rem;
    width: 100vw;
    margin: 0 auto;
-   background: #ccc;
 }
 
 .content {
