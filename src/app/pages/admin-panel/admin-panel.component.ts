@@ -99,6 +99,7 @@ export class AdminPanelComponent implements OnInit {
 
 
   logOut() {
+    
     this.authService.LogOutCurrentUser();
     this.router.navigateByUrl('/');
   }

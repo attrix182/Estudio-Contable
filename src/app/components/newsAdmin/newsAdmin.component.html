@@ -1,8 +1,5 @@
 <section class="news text-center container">
 
-
-
-
   <h3 class="text-center mb-1"><strong>Novedades</strong></h3>
 
 
@@ -15,16 +12,24 @@
 
     <article class="carousel-cell" *ngFor="let post of posts">
 
+
+
       <div class="card effect" (click)="abrirModalPost(post)">
-        <div [style.background-image]="'url(' + post.img + ')'" [style.height.px]="200" style="background-position: center; background-size: cover; background-repeat: no-repeat;">
+
+        <div *ngIf="post.img" class="card-img-top">
+          <img src="{{post.img}}" alt="{{post.titulo}}"/>
         </div>
-        <div class="card-img-top">
-          <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg"
-            alt="{{post.titulo}}" width="100%" height="auto"/>
+
+
+        <div *ngIf="!post.img" class="card-img-top">
+          <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" alt="{{post.titulo}}"/>
         </div>
-        <div class="card-body" style="z-index: 100;">
+
+
+        <div class="card-body">
           <h1 class="title">{{post.titulo}}</h1>
           <h2 class="subtitle">{{post.subtitulo}}</h2>
+
         </div>
       </div>
     </article>
@@ -37,15 +42,18 @@
 <ng-template #modalPost let-modal>
 
   <article class="modal-body">
+
+    <i class="btn btn-danger" (click)="deletePost(showPost)"><i class="fas fa-trash"></i> </i>
+    <i class="btn btn-warning" (click)="editPost(showPost)"><i class="fas fa-edit"></i> </i>
+
     <i (click)="modal.dismiss('Cross click')" class="btn btn-white"><i class="fas fa-times"></i> </i>
 
     <div *ngIf="showPost.img" class="card-img-top">
-      <img src="{{showPost.img}}" class="img-fluid" alt="{{showPost.titulo}}" />
+      <img src="{{showPost.img}}" class="img-fluid" alt="{{showPost.titulo}}"/>
     </div>
 
     <div *ngIf="!showPost.img" class="card-img-top">
-      <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" class="img-fluid"
-        alt="{{showPost.titulo}}" />
+      <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg" class="img-fluid" alt="{{showPost.titulo}}"/>
     </div>
 
 
