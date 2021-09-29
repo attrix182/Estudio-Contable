@@ -9,7 +9,7 @@ export class AlertService {
   constructor() { }
 
 
-  
+
   alertBottom(icon: SweetAlertIcon, text: string) {
     const Toast = Swal.mixin({
       toast: true,
@@ -30,7 +30,7 @@ export class AlertService {
     })
   }
 
-    
+
   alertTop(icon: SweetAlertIcon, text: string) {
     const Toast = Swal.mixin({
       toast: true,
@@ -51,7 +51,7 @@ export class AlertService {
     })
   }
 
-      
+
   alertCenter(icon: SweetAlertIcon, text: string) {
     const Toast = Swal.mixin({
       toast: true,
@@ -72,8 +72,7 @@ export class AlertService {
     })
   }
 
-  confirmAlert()
-  {
+  confirmAlert() {
     let confirm = false;
 
     Swal.fire({
@@ -87,9 +86,8 @@ export class AlertService {
       if (result.isConfirmed) {
         confirm = true;
         Swal.fire('Post eliminado', '', 'info')
-  
-      } 
- 
+
+      }
     })
     return true;
   }

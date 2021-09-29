@@ -104,6 +104,7 @@ export class NewsAdminComponent implements OnInit {
 
     confirm = this.alertSvc.confirmAlert();
     console.log(confirm)
+    
     if (confirm) {
       this.fire.Delete('posts', post.id).then(() => {
         this.modalService.dismissAll();
