@@ -8,6 +8,7 @@ carousel {
     width: 300px;
     height: 360px;
     margin: auto;
+    border-radius: 5px !important;
 }
 
 .title{
@@ -24,6 +25,7 @@ carousel {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  border: none;
 }
 
 .effect:hover {
