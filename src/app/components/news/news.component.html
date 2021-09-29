@@ -13,16 +13,12 @@
     <article class="carousel-cell" *ngFor="let post of posts">
 
       <div class="card effect" (click)="abrirModalPost(post)">
-        <!-- <div *ngIf="post.img" class="card-img-top">
-          <img src="{{post.img}}" alt="{{post.titulo}}" class="img" />
-        </div> -->
         <div [style.background-image]="'url(' + post.img + ')'" [style.height.px]="200" style="background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-          <!-- <img [src]=post.img class="card-img-top-aa" style="width: 100%; height: auto;"  alt="{{post.titulo}}"> -->
         
-        <!-- <div class="card-img-top">
+        <div class="card-img-top">
           <img src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg"
             alt="{{post.titulo}}" width="100%" height="auto"/>
-        </div> -->
+        </div>
         <div class="card-body" style="z-index: 100;">
           <h1 class="title">{{post.titulo}}</h1>
           <h2 class="subtitle">{{post.subtitulo}}</h2>
