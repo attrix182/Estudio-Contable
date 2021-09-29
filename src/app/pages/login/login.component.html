@@ -14,8 +14,6 @@
 <div [formGroup]="formLogin" class="form-signin">
   <img class="mb-4" src="../../../assets/logoR.jpg" alt="" width="85" >
   <h1 class="h3 mb-3 font-weight-normal">Iniciar sesion</h1>
-
-
   <label for="inputEmail" class="sr-only" >Email</label>
   <input [class]="isValidField('email')" type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email" required autofocus>
   <label for="inputPassword" class="sr-only">Clave</label>
@@ -29,8 +27,5 @@
   <button [disabled]="formLogin.invalid" class="btn btn-lg btn-primary btn-block" (click)="onLogin()">INICIAR SESION</button>
   <p class="mt-5 mb-3 text-muted">&copy;</p>
 </div>
-
-
-    
   </body>
 </html>
