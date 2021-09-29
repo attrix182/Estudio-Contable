@@ -45,6 +45,9 @@
 <ng-template #modalPost let-modal>
 
   <article class="modal-body">
+
+    <i *ngIf="permission" class="btn btn-danger"><i class="fas fa-trash"></i> </i>
+
     <i (click)="modal.dismiss('Cross click')" class="btn btn-white"><i class="fas fa-times"></i> </i>
 
     <div *ngIf="showPost.img" class="card-img-top">

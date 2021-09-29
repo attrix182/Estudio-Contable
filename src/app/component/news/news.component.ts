@@ -3,7 +3,9 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, TemplateRef,
 import { Router } from '@angular/router';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -19,13 +21,16 @@ export class NewsComponent implements OnInit {
 
   public showPost: any = "";
 
+  public userLog = null;
+  public permission: boolean = false;
+
   @Output() selectedPost: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
-  constructor(private fire: FireService, private router: Router,
-    private modalService: NgbModal, private vref: ViewContainerRef) {
+  constructor(private fire: FireService, private router: Router, private cdref: ChangeDetectorRef,
+    private modalService: NgbModal, private vref: ViewContainerRef, private auth: AuthService) {
     if (window.screen.width > 200) {
       this.test = 1;
     }
@@ -46,12 +51,43 @@ export class NewsComponent implements OnInit {
       console.log(this.posts);
     });
 
+
   }
+
+  ngAfterViewInit() {
+      this.permission = this.validateSession();
+  }
+
+
+
+
+
 
   formatDate() {
     this.postsAux = this.posts.forEach(element => {
       element.fecha = new Date(element.fecha).toLocaleDateString().concat(' a las ', new Date(element.fecha).toLocaleTimeString());
     });
+  }
+
+  validateSession(): boolean {
+
+
+    const user = this.auth.isLogged
+
+    let permission: boolean = false;
+
+    if (user) {
+
+      if (user.uid == 'WlrtJzdd08PKdvD9NxyOvRHj0N62') {
+
+        permission = true;
+      }
+      else {
+        permission = false;
+      }
+    }
+    return permission;
+
   }
 
   orderPostsByDate() {
@@ -72,7 +108,9 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
 
+
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth > 200) {
