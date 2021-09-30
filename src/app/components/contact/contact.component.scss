@@ -1,96 +1,98 @@
 .sidebar {
-    background: #9D4763;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    z-index: 100;
-    border-radius:40px;
-    #leftside-navigation {
-      width: 100%;
-      ul,
-      ul ul {
-        margin: -2px 0 0;
-        padding: 0;
-      }
-      ul {
-        li {
-          list-style-type: none;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          &.active {
-            & > a {
-              color: #1abc9c;
-            }
-            ul {
-              display: block;
+  background: #9d4763;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+  background: rgba(157, 71, 99, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  #leftside-navigation {
+    width: 100%;
+    ul,
+    ul ul {
+      margin: -2px 0 0;
+      padding: 0;
+    }
+    ul {
+      li {
+        list-style-type: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        &.active {
+          & > a {
+            color: #1abc9c;
+          }
+          ul {
+            display: block;
+          }
+        }
+        a {
+          color: #ffffff;
+          text-decoration: none;
+          display: block;
+          padding: 12px 0 12px 25px;
+          font-size: 0.85rem;
+          outline: 0;
+          -webkit-transition: all 200ms ease-in;
+          -moz-transition: all 200ms ease-in;
+          -o-transition: all 200ms ease-in;
+          -ms-transition: all 200ms ease-in;
+          transition: all 200ms ease-in;
+          cursor: pointer;
+          &:hover {
+            color: rgb(255, 114, 142);
+            .svg {
+              fill: rgb(255, 114, 142);
             }
           }
-          a {
-            color: #ffffff;
-            text-decoration: none;
-            display: block;
-            padding: 18px 0 18px 25px;
-            font-size: 0.85rem;
-            outline: 0;
+          span {
+            display: inline-block;
+            font-size: 0.95rem;
+          }
+          svg {
+            fill: #ffffff;
+            width: 30px;
+            height: auto;
+            padding-left: 3px;
+            padding-right: 3px;
             -webkit-transition: all 200ms ease-in;
             -moz-transition: all 200ms ease-in;
             -o-transition: all 200ms ease-in;
             -ms-transition: all 200ms ease-in;
             transition: all 200ms ease-in;
-            cursor: pointer;
-            &:hover {
-              color: rgb(255, 114, 142);
-              .svg {
-                fill: rgb(255, 114, 142);
-              }
-            }
-            span {
-              display: inline-block;
-              font-size: .95rem;
-            }
-            svg {
-              fill: #ffffff;
-              width: 30px;
-              height: auto;
-              padding-left: 3px;
-              padding-right: 3px;
-              -webkit-transition: all 200ms ease-in;
-              -moz-transition: all 200ms ease-in;
-              -o-transition: all 200ms ease-in;
-              -ms-transition: all 200ms ease-in;
-              transition: all 200ms ease-in;
-            }
-          }
-        }
-      }
-      ul ul {
-        display: none;
-        li {
-          background: #23313f;
-          margin-bottom: 0;
-          margin-left: 0;
-          margin-right: 0;
-          border-bottom: none;
-          a {
-            font-size: 0.75rem;
-            padding-top: 13px;
-            padding-bottom: 13px;
-            color: #ffffff;
-            &:hover{
-              background: #4D6C8B;
-            }
           }
         }
       }
     }
+    ul ul {
+      display: none;
+      li {
+        background: #23313f;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-bottom: none;
+        a {
+          font-size: 0.75rem;
+          color: #ffffff;
+          &:hover {
+            background: #4d6c8b;
+          }
+        }
+      }
+    }
+  }
 }
 
-.iframe{
-    margin-top: 20px;
-    margin: 10px;
+.iframe {
+  margin-top: 20px;
+  margin: 10px;
 }
 
-label{
+label {
   color: #fff;
 }

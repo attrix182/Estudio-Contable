@@ -30,7 +30,7 @@ export class InfiniteCarouselComponent implements OnInit {
 private assignItems(quantity: number): CarouselItem[] {
   const items = [];
   for (let i = 0; i < quantity; i++) {
-      items.push({name: i + 1, image: `https://image.freepik.com/free-photo/top-view-world-tourism-day-concept_23-2148608817.jpg`});
+      items.push({name: i + 1});
   }
 
   return items;

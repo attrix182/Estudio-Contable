@@ -1,10 +1,7 @@
 <section class="news text-center container">
 
   <h3 class="text-center text-white noDrag mb-1">Novedades</h3>
-
-
-  <div *ngIf="posts == 0" class="spinner-border mt-4" role="status">
-
+  <div *ngIf="posts == 0" class="spinner-border" role="status" style="position: absolute;bottom: 200px;width: 3rem; height: 3rem;">
   </div>
 
   <carousel [loop]='true' [autoplay]='false' [height]="400" [cellsToScroll]='1' [objectFit]="'cover'" [lightDOM]="true"
