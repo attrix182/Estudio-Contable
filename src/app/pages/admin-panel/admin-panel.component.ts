@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
 
-import {DOC_ORIENTATION, NgxImageCompressService} from 'ngx-image-compress';
+import { DOC_ORIENTATION, NgxImageCompressService } from 'ngx-image-compress';
 
 @Component({
   selector: 'app-admin-panel',
@@ -25,17 +25,17 @@ export class AdminPanelComponent implements OnInit {
   post: FormGroup;
 
   photo: File;
-  seleccionoFoto:boolean=true;
+  seleccionoFoto: boolean = true;
   postFinal: any;
 
-  imgResultBeforeCompress:string;
+  imgResultBeforeCompress: string;
 
-  imgResultAfterCompress:string;
+  imgResultAfterCompress: string;
 
   public user: any;
 
-  constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
-    private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService,private imageCompress: NgxImageCompressService) {
+  constructor(private authService: AuthService, private router: Router,
+    private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService, private imageCompress: NgxImageCompressService) {
 
 
     this.post = new FormGroup({
@@ -54,16 +54,15 @@ export class AdminPanelComponent implements OnInit {
       filename: ['']
     })
 
-   this.user = this.getActiveUser();
+    this.user = this.getActiveUser();
   }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-getActiveUser()
-{
-  return this.authService.isLogged;
-}
+  getActiveUser() {
+    return this.authService.isLogged;
+  }
 
 
   imagePreview(e) {
@@ -105,21 +104,25 @@ getActiveUser()
   }
 
 
+  
+
+
+
   logOut() {
-    
+
     this.authService.LogOutCurrentUser();
     this.router.navigateByUrl('/');
   }
 
   compressFile() {
-    this.imageCompress.uploadFile().then(({image, orientation}) => {
+    this.imageCompress.uploadFile().then(({ image, orientation }) => {
       this.imgResultBeforeCompress = image;
       /* console.warn('Size in bytes was:', this.imageCompress.byteCount(image)); */
       this.imageCompress.compressFile(image, orientation, 50, 40).then(
         result => {
           /* console.log(result); */
           this.imgResultAfterCompress = result;
-          this.seleccionoFoto=false;
+          this.seleccionoFoto = false;
           /* console.warn('Size in bytes is now:', this.imageCompress.byteCount(result)); */
         }
       );

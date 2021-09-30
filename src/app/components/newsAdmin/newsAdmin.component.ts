@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Component({
   selector: 'app-news-admin',
@@ -22,13 +24,30 @@ export class NewsAdminComponent implements OnInit {
   public showPost: any = "";
 
 
+  post: FormGroup;
+
+  filePath: string;
+  photo: File;
+  seleccionoFoto: boolean = true;
+  postFinal: any;
+
+  imgResultBeforeCompress: string;
+
+  imgResultAfterCompress: string;
+
+
   @Output() selectedPost: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
-  constructor(private fire: FireService, private router: Router,
-    private modalService: NgbModal, private vref: ViewContainerRef, private auth: AuthService, private alertSvc: AlertService) {
+  
+  @ViewChild('modalPostEdit', { read: TemplateRef })
+  modalPostEdit: TemplateRef<any>;
+
+
+  constructor(private authService: AuthService, private router: Router,
+    private modalService: NgbModal, private FB: FormBuilder, private alertSvc: AlertService, private fire: FireService, private imageCompress: NgxImageCompressService) {
     if (window.screen.width > 200) {
       this.test = 1;
     }
@@ -49,6 +68,21 @@ export class NewsAdminComponent implements OnInit {
       console.log(this.posts);
     });
 
+    this.post = new FormGroup({
+      'titulo': new FormControl(''),
+      'subtitulo': new FormControl(''),
+      'contenido': new FormControl('')
+
+    });
+
+    this.post = this.FB.group({
+
+      'titulo': ['', Validators.required],
+      'subtitulo': ['', Validators.required],
+      'contenido': ['', Validators.required],
+      img: [null],
+      filename: ['']
+    })
 
   }
 
@@ -99,7 +133,7 @@ export class NewsAdminComponent implements OnInit {
   }
 
   async deletePost(post) {
-    let confirm:any = false;
+    let confirm: any = false;
     confirm = await this.alertSvc.confirmAlert();
     if (confirm) {
       this.fire.Delete('posts', post.id).then(() => {
@@ -109,11 +143,67 @@ export class NewsAdminComponent implements OnInit {
     }
   }
 
+
+
+
   editPost(post) {
-    console.log(post.id)
-    this.alertSvc.alertCenter('info', 'Aun no implementado')
+    this.modalService.dismissAll();
+    this.post.controls.titulo.setValue(post.titulo);
+    this.post.controls.subtitulo.setValue(post.subtitulo);
+    this.post.controls.contenido.setValue(post.contenido);
+  
+    this.modalService.open(this.modalPostEdit)
   }
 
+
+  addPost() {
+
+/*     var date = new Date();
+    this.post.value.fecha = date.getTime(); */
+    this.postFinal = this.post.value
+    this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
+
+    this.fire.UpdatePost(this.showPost.id,'posts', this.postFinal);
+
+    //clear form post
+    this.post.reset();
+    this.filePath = null;
+    this.modalService.dismissAll();
+    this.alertSvc.alertTop('success', 'Post agregado con exito');
+  }
+
+  imagePreview(e) {
+    const file = (e.target as HTMLInputElement).files[0];
+
+    this.photo = (e.target as HTMLInputElement).files[0];
+
+    this.post.patchValue({
+      img: file
+    });
+
+    this.post.get('img').updateValueAndValidity()
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.filePath = reader.result as string;
+    }
+    reader.readAsDataURL(file)
+  }
+
+  compressFile() {
+    this.imageCompress.uploadFile().then(({ image, orientation }) => {
+      this.imgResultBeforeCompress = image;
+      /* console.warn('Size in bytes was:', this.imageCompress.byteCount(image)); */
+      this.imageCompress.compressFile(image, orientation, 50, 40).then(
+        result => {
+          /* console.log(result); */
+          this.imgResultAfterCompress = result;
+          this.seleccionoFoto = false;
+          /* console.warn('Size in bytes is now:', this.imageCompress.byteCount(result)); */
+        }
+      );
+    });
+  }
 
 
 }

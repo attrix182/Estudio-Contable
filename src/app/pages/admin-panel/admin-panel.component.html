@@ -28,7 +28,7 @@
 
 <div align="center" class="container">
 
-<app-news-admin></app-news-admin>
+  <app-news-admin></app-news-admin>
 
   <button class="btn btn-primary btn-block mt-3" (click)="writePost()">Crear Post</button>
 
@@ -47,9 +47,12 @@
         <!-- <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)"  > -->
         <label for="banner-upload" class="banner-upload-btn"><i class="fa fa-upload"></i></label>
       </div>
-      <textarea type="text" class="text-center mt-1 title" cols="1" rows="1" formControlName="titulo" placeholder="Titulo..."></textarea>
-      <textarea type="text" class="text-left subtitle" cols="1" rows="1" formControlName="subtitulo" placeholder="Subitulo..."></textarea>
-      <textarea type="text" class="article" cols="1" rows="5" formControlName="contenido" placeholder="Empiece a escribir..."></textarea>
+      <textarea type="text" class="text-center mt-1 title" cols="1" rows="1" formControlName="titulo"
+        placeholder="Titulo..."></textarea>
+      <textarea type="text" class="text-left subtitle" cols="1" rows="1" formControlName="subtitulo"
+        placeholder="Subitulo..."></textarea>
+      <textarea type="text" class="article" cols="1" rows="5" formControlName="contenido"
+        placeholder="Empiece a escribir..."></textarea>
     </div>
 
     <div class="blog-options">

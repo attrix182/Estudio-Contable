@@ -58,3 +58,31 @@
   </div>
 
 </ng-template>
+
+
+<ng-template #modalPostEdit let-modal>
+  <form [formGroup]="post">
+    <div class="modal-body">
+      <div class="banner">
+        <div *ngIf="this.imgResultAfterCompress && this.imgResultAfterCompress !== ''">
+          <img [src]="imgResultAfterCompress" [alt]="post.value.name" class="imgCover">
+        </div>
+        <button id="banner-upload" (click)="compressFile()" hidden></button>
+        <!-- <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)"  > -->
+        <label for="banner-upload" class="banner-upload-btn"><i class="fa fa-upload"></i></label>
+      </div>
+      <textarea type="text" class="text-center mt-1 title" cols="1" rows="1" formControlName="titulo"
+        placeholder="Titulo..." value="{{showPost.titulo}}">asfasfasf</textarea>
+      <textarea type="text" class="text-left subtitle" cols="1" rows="1" formControlName="subtitulo"
+        placeholder="Subitulo...">{{showPost.subtitulo}}</textarea>
+      <textarea type="text" class="article" cols="1" rows="5" formControlName="contenido"
+        placeholder="Empiece a escribir...">{{showPost.contenido}}</textarea>
+    </div>
+
+    <div class="blog-options">
+      <button class="btn dark publish-btn success" [disabled]="seleccionoFoto || post.invalid"
+        (click)="addPost()">Publicar</button>
+      <!-- <button class="btn dark publish-btn success" *ngIf="!post.invalid" (click)="addPost()">Publicar</button> -->
+    </div>
+  </form>
+</ng-template>
