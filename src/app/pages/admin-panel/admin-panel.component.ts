@@ -32,6 +32,8 @@ export class AdminPanelComponent implements OnInit {
 
   imgResultAfterCompress:string;
 
+  public user: any;
+
   constructor(public fb: FormBuilder, private authService: AuthService, private router: Router,
     private modalService: NgbModal, private FB: FormBuilder, private AlertService: AlertService, private fire: FireService,private imageCompress: NgxImageCompressService) {
 
@@ -51,12 +53,17 @@ export class AdminPanelComponent implements OnInit {
       img: [null],
       filename: ['']
     })
+
+   this.user = this.getActiveUser();
   }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-
+getActiveUser()
+{
+  return this.authService.isLogged;
+}
 
 
   imagePreview(e) {
