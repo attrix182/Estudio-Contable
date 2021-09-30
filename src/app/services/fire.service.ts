@@ -81,8 +81,10 @@ export class FireService {
 
   UpdatePost(id: string, collectionName: string, post: any) {
 
-console.log(post);
-    if (post.img) {
+  return this.cloudFireStore.collection(collectionName).doc(id).update({titulo: post.titulo, subtitulo: post.subtitulo, contenido: post.contenido});
+
+}
+/*     if (post.img) {
       const filePath = `/usuarios/${post.id}/image.jpeg`;
       const ref = this.storage.ref(filePath).putString(post.img, 'base64', { contentType: 'image/jpeg' }).then(() => {
         let storages = firebase.default.storage();
@@ -105,7 +107,9 @@ console.log(post);
       return this.cloudFireStore.collection(collectionName).doc(id).update({titulo: post.titulo, subtitulo: post.subtitulo, contenido: post.contenido});
     }
     return 0;
-  }
+  } */
+
+  
 
 
 }

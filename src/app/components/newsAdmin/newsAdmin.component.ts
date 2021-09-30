@@ -149,7 +149,8 @@ export class NewsAdminComponent implements OnInit {
   editPost(post) {
     this.modalService.dismissAll();
 
-    this.imgResultAfterCompress = post.img;
+
+   // this.imgResultAfterCompress = post.img;
 
     this.post.controls.titulo.setValue(post.titulo);
     this.post.controls.subtitulo.setValue(post.subtitulo);
@@ -162,7 +163,7 @@ export class NewsAdminComponent implements OnInit {
   updatePost() {
 
     this.postFinal = this.post.value
-    this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
+    //this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
 
     this.fire.UpdatePost(this.showPost.id, 'posts', this.postFinal);
 
