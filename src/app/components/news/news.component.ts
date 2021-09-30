@@ -13,7 +13,7 @@ import { FireService } from 'src/app/services/fire.service';
 })
 export class NewsComponent implements OnInit {
 
-  public test: number = 3;
+  public test: number = 2;
   public posts: any = [];
   public postsAux: any = [];
   public result: any[] = [];
@@ -31,10 +31,10 @@ export class NewsComponent implements OnInit {
     if (window.screen.width > 200) {
       this.test = 1;
     }
-    if (window.screen.width > 600) {
+    if (window.screen.width > 700) {
       this.test = 2;
     }
-    if (window.screen.width > 900) {
+    if (window.screen.width > 1000) {
       this.test = 3;
     }
 
