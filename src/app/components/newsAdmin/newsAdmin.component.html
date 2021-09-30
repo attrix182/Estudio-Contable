@@ -65,6 +65,7 @@
     <div class="modal-body">
       <div class="banner">
         <div *ngIf="this.imgResultAfterCompress && this.imgResultAfterCompress !== ''">
+          
           <img [src]="imgResultAfterCompress" [alt]="post.value.name" class="imgCover">
         </div>
         <button id="banner-upload" (click)="compressFile()" hidden></button>
@@ -80,8 +81,11 @@
     </div>
 
     <div class="blog-options">
-      <button class="btn dark publish-btn success" [disabled]="seleccionoFoto || post.invalid"
-        (click)="addPost()">Publicar</button>
+      <button class="btn btn-danger "
+        (click)="cancel()">Cancelar</button>
+
+      <button class="btn dark publish-btn success" [disabled]="post.invalid"
+        (click)="updatePost()">Actualizar</button>
       <!-- <button class="btn dark publish-btn success" *ngIf="!post.invalid" (click)="addPost()">Publicar</button> -->
     </div>
   </form>

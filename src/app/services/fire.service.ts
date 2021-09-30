@@ -79,9 +79,9 @@ export class FireService {
     }
   }
 
-  UpdatePost(id: string,collectionName: string, post: any) {
+  UpdatePost(id: string, collectionName: string, post: any) {
 
-
+console.log(post);
     if (post.img) {
       const filePath = `/usuarios/${post.id}/image.jpeg`;
       const ref = this.storage.ref(filePath).putString(post.img, 'base64', { contentType: 'image/jpeg' }).then(() => {
@@ -101,6 +101,10 @@ export class FireService {
       });
 
     }
+    else {
+      return this.cloudFireStore.collection(collectionName).doc(id).update({titulo: post.titulo, subtitulo: post.subtitulo, contenido: post.contenido});
+    }
+    return 0;
   }
 
 

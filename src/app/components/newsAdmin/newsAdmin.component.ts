@@ -41,7 +41,7 @@ export class NewsAdminComponent implements OnInit {
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
-  
+
   @ViewChild('modalPostEdit', { read: TemplateRef })
   modalPostEdit: TemplateRef<any>;
 
@@ -148,22 +148,23 @@ export class NewsAdminComponent implements OnInit {
 
   editPost(post) {
     this.modalService.dismissAll();
+
+    this.imgResultAfterCompress = post.img;
+
     this.post.controls.titulo.setValue(post.titulo);
     this.post.controls.subtitulo.setValue(post.subtitulo);
     this.post.controls.contenido.setValue(post.contenido);
-  
+
     this.modalService.open(this.modalPostEdit)
   }
 
 
-  addPost() {
+  updatePost() {
 
-/*     var date = new Date();
-    this.post.value.fecha = date.getTime(); */
     this.postFinal = this.post.value
     this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
 
-    this.fire.UpdatePost(this.showPost.id,'posts', this.postFinal);
+    this.fire.UpdatePost(this.showPost.id, 'posts', this.postFinal);
 
     //clear form post
     this.post.reset();
@@ -188,6 +189,10 @@ export class NewsAdminComponent implements OnInit {
       this.filePath = reader.result as string;
     }
     reader.readAsDataURL(file)
+  }
+
+  cancel() {
+    this.modalService.dismissAll();
   }
 
   compressFile() {
