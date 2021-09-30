@@ -15,7 +15,8 @@ body::-webkit-scrollbar-thumb:hover{
 }
 body{
     overflow-x: hidden;
-    background-color:  #955E70;
+    background-color:  #952549;
+    /* background-color:  #955E70; */
     
  }
 
