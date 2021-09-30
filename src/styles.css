@@ -15,9 +15,18 @@ body::-webkit-scrollbar-thumb:hover{
 }
 body{
     overflow-x: hidden;
-    background-color:  #d8d0d2;
+    background-color:  #955E70;
     
  }
+
+ .noDrag {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
 
 :root,:host {
     /* HSL color mode */
