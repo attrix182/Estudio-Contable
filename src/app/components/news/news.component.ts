@@ -50,7 +50,6 @@ export class NewsComponent implements OnInit {
 
       this.posts.sort((a, b) => {
         if (a.fecha > b.fecha) {
-          console.log(a.fecha);
           return -1;
         }
         if (a.fecha < b.fecha) {
@@ -74,9 +73,12 @@ export class NewsComponent implements OnInit {
     });
   }
 
+  abrirModalPost(post) {
+    this.showPost = post;
+    this.modalService.open(this.modalPost);
+  }
 
-
-  ngOnInit(): void {    console.log("aaaaaaaa");}
+  ngOnInit(): void { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -91,8 +93,5 @@ export class NewsComponent implements OnInit {
     }
   }
 
-  abrirModalPost(post) {
-    this.showPost = post;
-    this.modalService.open(this.modalPost);
-  }
+
 }

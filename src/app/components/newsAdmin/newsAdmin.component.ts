@@ -76,7 +76,6 @@ export class NewsAdminComponent implements OnInit {
 
       this.posts.sort((a, b) => {
         if (a.fecha > b.fecha) {
-          console.log(a.fecha);
           return -1;
         }
         if (a.fecha < b.fecha) {
@@ -111,8 +110,6 @@ export class NewsAdminComponent implements OnInit {
         .concat(' a las ', new Date(element.fecha).toLocaleTimeString());
     });
   }
-
-
 
   abrirModalPost(post) {
     this.showPost = post;
@@ -182,10 +179,10 @@ export class NewsAdminComponent implements OnInit {
       this.imageCompress
         .compressFile(image, orientation, 50, 40)
         .then((result) => {
-          /* console.log(result); */
+
           this.imgResultAfterCompress = result;
           this.seleccionoFoto = false;
-          /* console.warn('Size in bytes is now:', this.imageCompress.byteCount(result)); */
+      
         });
     });
   }
@@ -202,5 +199,4 @@ export class NewsAdminComponent implements OnInit {
       this.test = 3;
     }
   }
-
 }

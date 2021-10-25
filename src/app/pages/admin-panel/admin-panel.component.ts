@@ -103,7 +103,6 @@ export class AdminPanelComponent implements OnInit {
   addPost() {
     var date = new Date();
     this.post.value.fecha = date.getTime();
-    console.log(this.post.value);
     this.postFinal = this.post.value;
     this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
     this.fire.InsertPost('posts', this.postFinal);
@@ -126,10 +125,8 @@ export class AdminPanelComponent implements OnInit {
       this.imageCompress
         .compressFile(image, orientation, 50, 40)
         .then((result) => {
-          /* console.log(result); */
           this.imgResultAfterCompress = result;
           this.seleccionoFoto = false;
-          /* console.warn('Size in bytes is now:', this.imageCompress.byteCount(result)); */
         });
     });
   }
