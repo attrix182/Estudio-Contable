@@ -1,45 +1,58 @@
-
-body::-webkit-scrollbar{
-    width: 0.5rem;
+body::-webkit-scrollbar {
+  width: 0.5rem;
 }
 
-body::-webkit-scrollbar-track{
-    background: #1e1e24;
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
 }
 
-body::-webkit-scrollbar-thumb{
-    background: #9D4763;
+body::-webkit-scrollbar-thumb {
+  background: #9d4763;
 }
-body::-webkit-scrollbar-thumb:hover{
-    background: #960332;
+body::-webkit-scrollbar-thumb:hover {
+  background: #960332;
 }
-body{
-    overflow-x: hidden;
-    background-color:  #952549;
-    /* background-color:  #955E70; */
-    
- }
+body {
+  overflow-x: hidden;
+  background-color: #952549;
+  /* background-color:  #955E70; */
+}
 
- .noDrag {
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-
-
-:root,:host {
-    /* HSL color mode */
-    --first-color: rgb(42, 60, 96);
-    --second-color:rgb(72, 90, 126);
-    --third-color:rgb(219, 230, 253);
-    --quarter-color:rgb(178, 171, 140);
+.noDrag {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
-*{
-    font-family: 'Raleway', sans-serif;;
+
+:root,
+:host {
+  /* HSL color mode */
+  --first-color: rgb(42, 60, 96);
+  --second-color: rgb(72, 90, 126);
+  --third-color: rgb(219, 230, 253);
+  --quarter-color: rgb(178, 171, 140);
 }
-/* @font-face {
-    font-family: Raleway;
-    src: url(assets/fonts/static/Raleway-Medium.ttf);
-} */
+* {
+  font-family: "Poppins", sans-serif;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/Fonts/Montserrat/Montserrat-Medium.ttf"); /* IE9 Compat Modes */
+  src: url("./assets/Fonts/Montserrat/Montserrat-Medium.ttf") format("ttf"),
+    /* IE6-IE8 */ url("./assets/Fonts/Montserrat/Montserrat-Medium.ttf")
+      format("ttf"),
+    /* Modern Browsers */ url("./assets/Fonts/Montserrat/Montserrat-Medium.ttf")
+      format("ttf"); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/Fonts/Poppins/Poppins-Medium.ttf"); /* IE9 Compat Modes */
+  src: url("./assets/Fonts/Poppins/Poppins-Medium.ttf") format("ttf"),
+    /* IE6-IE8 */ url("./assets/Fonts/Poppins/Poppins-Medium.ttf")
+      format("ttf"),
+    /* Modern Browsers */ url("./assets/Fonts/Poppins/Poppins-Medium.ttf")
+      format("ttf"); /* Safari, Android, iOS */
+}
