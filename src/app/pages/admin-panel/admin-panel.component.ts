@@ -22,26 +22,23 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
 
 import { DOC_ORIENTATION, NgxImageCompressService } from 'ngx-image-compress';
+import { BaseFormAbstract } from 'src/app/shared/base-form-abstract';
 
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
   styleUrls: ['./admin-panel.component.css'],
 })
-export class AdminPanelComponent implements OnInit {
+export class AdminPanelComponent extends BaseFormAbstract implements OnInit {
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
   filePath: string;
-  myForm: FormGroup;
-  post: FormGroup;
-
+  formGroup: FormGroup;
   photo: File;
-  seleccionoFoto: boolean = true;
+  selectPhoto: boolean = true;
   postFinal: any;
-
   imgResultBeforeCompress: string;
-
   imgResultAfterCompress: string;
 
   public user: any;
@@ -55,24 +52,14 @@ export class AdminPanelComponent implements OnInit {
     private fire: FireService,
     private imageCompress: NgxImageCompressService
   ) {
-    this.post = new FormGroup({
-      titulo: new FormControl(''),
-      subtitulo: new FormControl(''),
-      contenido: new FormControl(''),
-    });
-
-    this.post = this.FB.group({
-      titulo: ['', Validators.required],
-      subtitulo: ['', Validators.required],
-      contenido: ['', Validators.required],
-      img: [null],
-      filename: [''],
-    });
+    super();
 
     this.user = this.getActiveUser();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initForm();
+  }
 
   getActiveUser() {
     return this.authService.isLogged;
@@ -83,11 +70,11 @@ export class AdminPanelComponent implements OnInit {
 
     this.photo = (e.target as HTMLInputElement).files[0];
 
-    this.post.patchValue({
+    this.formGroup.patchValue({
       img: file,
     });
 
-    this.post.get('img').updateValueAndValidity();
+    this.formGroup.get('img').updateValueAndValidity();
 
     const reader = new FileReader();
     reader.onload = () => {
@@ -102,12 +89,12 @@ export class AdminPanelComponent implements OnInit {
 
   addPost() {
     var date = new Date();
-    this.post.value.fecha = date.getTime();
-    this.postFinal = this.post.value;
+    this.formGroup.value.fecha = date.getTime();
+    this.postFinal = this.formGroup.value;
     this.postFinal.img = this.imgResultAfterCompress.split(/,(.+)/)[1];
     this.fire.InsertPost('posts', this.postFinal);
     //clear form post
-    this.post.reset();
+    this.formGroup.reset();
     this.filePath = null;
     this.modalService.dismissAll();
     this.AlertService.alertTop('success', 'Post agregado con exito');
@@ -126,8 +113,39 @@ export class AdminPanelComponent implements OnInit {
         .compressFile(image, orientation, 50, 40)
         .then((result) => {
           this.imgResultAfterCompress = result;
-          this.seleccionoFoto = false;
+          this.selectPhoto = false;
         });
+    });
+  }
+
+  setErrorMessages() {
+    this.errroMessages = {
+      title: {
+        required: 'El titulo es obligatorio',
+      },
+      subtitle: {
+        required: 'El subtitulo es obligatorio',
+      },
+      content: {
+        required: 'El contenido es obligatorio',
+      },
+    };
+  }
+
+  initForm() {
+    this.formGroup = new FormGroup({
+      title: new FormControl(''),
+      subtitle: new FormControl(''),
+      content: new FormControl(''),
+      img: new FormControl(''),
+    });
+
+    this.formGroup = this.FB.group({
+      title: ['', Validators.required],
+      subtitle: ['', Validators.required],
+      content: ['', Validators.required],
+      img: [null],
+      filename: [''],
     });
   }
 }

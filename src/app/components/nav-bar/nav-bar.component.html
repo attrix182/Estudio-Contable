@@ -1,41 +1,92 @@
 <!--Navbar -->
-
-
 <header>
-  <nav class="navbar navbar-expand-lg text-white" id="navbar" (scroll)="onscroll()" ngxHideOnScroll
-    [propertyUsedToHide]="'top'" [valueWhenHidden]="'-100px'" [valueWhenShown]="'0px'">
-    <div class="row">
-    </div>
+  <nav
+    class="navbar navbar-expand-lg text-white"
+    id="navbar"
+    (scroll)="onscroll()"
+    ngxHideOnScroll
+    [propertyUsedToHide]="'top'"
+    [valueWhenHidden]="'-100px'"
+    [valueWhenShown]="'0px'"
+  >
+    <div class="row"></div>
     <div class="container">
       <div class="nav__logo effect" #nav__logo>
-        <a pageScroll [pageScrollDuration]="500" class="navbar-brand" [routerLink]="['']">
-          <img id=nav__logo-img #nav__logo_img src="../../../assets/LogoCortado1.png" alt="logo sivila"
-            srcset="">
+        <a
+          pageScroll
+          [pageScrollDuration]="500"
+          class="navbar-brand"
+          [routerLink]="['']"
+        >
+          <img
+            id="nav__logo-img"
+            #nav__logo_img
+            src="../../../assets/LogoCortado1.png"
+            alt="logo sivila"
+            srcset=""
+          />
         </a>
       </div>
-      <button class="navbar-toggler" type="button" (click)="showItems()" data-toggle="collapse"
-        data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="showItems()"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent-333"
+        aria-controls="navbarSupportedContent-333"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" #navbarSupportedContent id="navbarSupportedContent-333">
+      <div
+        class="collapse navbar-collapse"
+        #navbarSupportedContent
+        id="navbarSupportedContent-333"
+      >
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link"  [routerLink]="['/']">Inicio</a>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" [routerLink]="['/']">Inicio</a>
           </li>
 
-          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link"  [routerLink]="['/servicios']">Servicios</a>
-          </li>
-          
-          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" [routerLink]="['/certificaciones']" routerLinkActive="active">Certificaciones</a>
-          </li>
-          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active">Sobre nosotros</a>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
           </li>
 
-    <!--       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['/certificaciones']"
+              routerLinkActive="active"
+              >Certificaciones</a
+            >
+          </li>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['/about']"
+              routerLinkActive="active"
+              >Sobre nosotros</a
+            >
+          </li>
+
+          <!--       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link" pageScroll [pageScrollDuration]="500" href="#news">Novedades</a>
           </li>
           <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -46,23 +97,21 @@
         <ul class="navbar-nav ml-auto nav-flex-icons">
           <li class="nav-item">
             <a class="nav-link waves-effect waves-light">
-              <i class="fab fa-instagram effect" style="font-size: 1.1em;"></i>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a class="nav-link waves-effect waves-light effect" >
-              <i class="fab fa-whatsapp " style="font-size: 1.1em;"></i>
+              <i class="fab fa-instagram effect" style="font-size: 1.1em"></i>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link waves-effect waves-light effect" >
-              <i class="fab fa-facebook " style="font-size: 1.1em;"></i>
+            <a class="nav-link waves-effect waves-light effect">
+              <i class="fab fa-whatsapp" style="font-size: 1.1em"></i>
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link waves-effect waves-light effect">
+              <i class="fab fa-facebook" style="font-size: 1.1em"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

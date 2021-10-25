@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase/app';
-import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +13,7 @@ export class FireService {
 
   constructor(
     private cloudFireStore: AngularFirestore,
-    private storage: AngularFireStorage,
-    private imageCompress: NgxImageCompressService
+    private storage: AngularFireStorage
   ) {}
   imgResultBeforeCompress: string;
   imgResultAfterCompress: string;
@@ -99,13 +97,10 @@ export class FireService {
   }
 
   UpdatePost(id: string, collectionName: string, post: any) {
-    return this.cloudFireStore
-      .collection(collectionName)
-      .doc(id)
-      .update({
-        titulo: post.titulo,
-        subtitulo: post.subtitulo,
-        contenido: post.contenido,
-      });
+    return this.cloudFireStore.collection(collectionName).doc(id).update({
+      titulo: post.titulo,
+      subtitulo: post.subtitulo,
+      contenido: post.contenido,
+    });
   }
 }

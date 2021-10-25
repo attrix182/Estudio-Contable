@@ -1,45 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { BaseFormAbstract } from 'src/app/shared/base-form-abstract';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements OnInit {
-
-  userForm: FormGroup;
-  private isEmail = /\S+@\S+\.\S+/;
+export class ContactComponent extends BaseFormAbstract implements OnInit {
+  formGroup: FormGroup;
   loading: boolean = false;
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private builder: FormBuilder) {
+    super();
+  }
 
   ngOnInit() {
-    this.userForm = this.builder.group({
-      fullname: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.compose([Validators.required, Validators.pattern(this.isEmail)])]),
-      subject: new FormControl('', [Validators.required]),
-      comment: new FormControl('', [Validators.required])
-    })
+    this.initForm();
   }
 
   onSubmit() {
     this.loading = true;
-
     setTimeout(() => {
       this.loading = false;
-      this.userForm.reset();
+      this.formGroup.reset();
     }, 3000);
-
   }
 
-  isValidField(field: string): string {
-    const validateField = this.userForm.get(field);
-    return !validateField.valid && validateField.touched
-      ? 'is-invalid'
-      : validateField.touched
-        ? 'is-valid'
-        : '';
+  initForm() {
+    this.formGroup = this.builder.group({
+      fullname: new FormControl('', [Validators.required]),
+      email: new FormControl('', [
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ]),
+      ]),
+      subject: new FormControl('', [Validators.required]),
+      comment: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
+    });
   }
 
+  setErrorMessages() {
+    this.errroMessages = {
+      fullname: {
+        required: 'El nombre completo es obligatorio',
+      },
+      email: {
+        required: 'El email es obligatorio',
+        pattern: 'El email es invalido',
+      },
+      subject: {
+        required: 'El asunto es obligatorio',
+      },
+      comment: {
+        required: 'El comentario es obligatorio',
+        minlength: 'El comentario debe tener al menos 10 caracteres',
+      },
+    };
+  }
 }

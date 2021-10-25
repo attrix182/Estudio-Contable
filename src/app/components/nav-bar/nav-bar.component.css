@@ -1,36 +1,32 @@
-
-
 nav {
   background: var(--first-color) !important;
   position: fixed;
   top: 0;
   width: 100%;
-  transition: top 0.5s ease-in-out; 
+  transition: top 0.5s ease-in-out;
 }
 #nav__logo-img {
   width: 2em;
   height: auto;
 }
-.navbar-brand{
+.navbar-brand {
   position: relative;
 }
-#navbar{
+#navbar {
   z-index: 200;
 }
-.nav-link
-{
+.nav-link {
   color: #fff;
   font-size: 1.1em;
-
 }
 @media screen and (min-width: 992px) {
   #nav__logo-img {
     width: 3em;
   }
-  .navbar-brand{
+  .navbar-brand {
     position: relative;
   }
-  #navbar{
+  #navbar {
     z-index: 200;
   }
 }

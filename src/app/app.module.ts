@@ -2,7 +2,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -22,12 +22,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login/login.component';
 import { LinksComponent } from './components/links/links.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { CarouselModule } from 'ng-carousel-cdk';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgxImageCompressService} from 'ngx-image-compress';
+import { NgxImageCompressService } from 'ngx-image-compress';
 import { ServiciosComponent } from './pages/sections/servicios/servicios.component';
 import { CertificacionesComponent } from './pages/sections/certificaciones/certificaciones.component';
 import { SobreNosotrosComponent } from './pages/sections/sobre-nosotros/sobre-nosotros.component';
@@ -48,8 +48,7 @@ import { SobreNosotrosComponent } from './pages/sections/sobre-nosotros/sobre-no
     ServiciosComponent,
     CertificacionesComponent,
     SobreNosotrosComponent,
-    NewsAdminComponent
-    
+    NewsAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,10 +63,10 @@ import { SobreNosotrosComponent } from './pages/sections/sobre-nosotros/sobre-no
     IvyCarouselModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
-    ],
-    exports:[CarouselModule],
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+  ],
+  exports: [CarouselModule],
   providers: [NgxImageCompressService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
