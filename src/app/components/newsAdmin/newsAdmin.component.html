@@ -16,7 +16,7 @@
     [objectFit]="'cover'"
   >
     <article class="carousel-cell" *ngFor="let post of posts">
-      <div class="card effect" (click)="abrirModalPost(post)">
+      <div class="card effect" (click)="openModalPost(post)">
         <div
           [style.background-image]="'url(' + post.img + ')'"
           [style.height.px]="200"

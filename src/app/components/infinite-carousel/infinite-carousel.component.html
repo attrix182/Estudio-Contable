@@ -1,22 +1,26 @@
-<div class="container-xl" style="padding: 0;">
-    <ng-carousel
-        #carouselRef="ngCarousel"
-        [config]="config"
-        (itemIndexChange)="setItemIndex($event)"
-        class="carousel-block">
-        <ng-template
-            [ngCarouselSlide]="carouselRef"
-            let-item
-            let-active="isActive"
-            let-activeOnTheRight="activeOnTheRight"
-            let-activeOnTheLeft="activeOnTheLeft"
-            style="object-fit: contain;">
-            <div
-                [class.active]="active"
-                class="carousel-slide">
-                <img src="../../../assets/descarga.jfif" alt="" style="height: 150px; object-fit: cover;">
-            </div>
-        </ng-template>
-    </ng-carousel>
+<div class="container-xl" style="padding: 0">
+  <ng-carousel
+    #carouselRef="ngCarousel"
+    [config]="config"
+    (itemIndexChange)="setItemIndex($event)"
+    class="carousel-block"
+  >
+    <ng-template
+      [ngCarouselSlide]="carouselRef"
+      let-item
+      let-active="isActive"
+      let-activeOnTheRight="activeOnTheRight"
+      let-activeOnTheLeft="activeOnTheLeft"
+      style="object-fit: contain"
+    >
+      <div [class.active]="active" class="carousel-slide">
+        <img
+          src="../../../assets/descarga.jfif"
+          alt=""
+          style="height: 150px; object-fit: cover"
+        />
+      </div>
+    </ng-template>
+  </ng-carousel>
 </div>
-    <!-- [style.background-image]="item.image" -->
+<!-- [style.background-image]="item.image" -->

@@ -1,17 +1,32 @@
 <app-nav-bar (showNavBar)="hiddeLogo($event)"></app-nav-bar>
-<div id="img__logo" class="container " style="position: relative;">
-  <img id=nav__logo-img #nav__logo_img src="../../../assets/logo.webp" class="effect" alt="logo sivila" srcset=""
-    style="position: absolute; z-index: 200; width: 10em ;">
+<div id="img__logo" class="container" style="position: relative">
+  <img
+    id="nav__logo-img"
+    #nav__logo_img
+    src="../../../assets/logo.webp"
+    class="effect"
+    alt="logo sivila"
+    srcset=""
+    style="position: absolute; z-index: 200; width: 10em"
+  />
 </div>
 <!--Video-->
-<section class="containVideo" id="home" style="position: relative;">
-
-  <video class="fullscreen" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" id="vid">
-    <source src="../../../assets/video/pexels-mikhail-nilov-6963480.mp4" type="video/mp4">
+<section class="containVideo" id="home" style="position: relative">
+  <video
+    class="fullscreen"
+    loop
+    muted
+    autoplay
+    oncanplay="this.play()"
+    onloadedmetadata="this.muted = true"
+    id="vid"
+  >
+    <source
+      src="../../../assets/video/pexels-mikhail-nilov-6963480.mp4"
+      type="video/mp4"
+    />
   </video>
-
 </section>
-
 
 <!-- <hr class="my-5"  id="info"/> -->
 <!--Enlaces utiles-->
@@ -21,7 +36,6 @@
 <!--Main-->
 <main class="main">
   <div class="container-xl">
-
     <!--Section: News-->
     <app-news id="news" class="news m-3"></app-news>
     <!--Section: News-->
@@ -31,7 +45,6 @@
     <!--Section: Contact-->
     <app-contact></app-contact>
     <!--Section: Contact-->
- 
   </div>
 </main>
 <!--Main-->

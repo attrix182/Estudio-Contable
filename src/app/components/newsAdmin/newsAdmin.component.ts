@@ -1,9 +1,7 @@
 import { AlertService } from './../../services/alert.service';
-
 import {
   Component,
   OnInit,
-  Input,
   Output,
   EventEmitter,
   ViewChild,
@@ -53,8 +51,6 @@ export class NewsAdminComponent implements OnInit {
   modalPostEdit: TemplateRef<any>;
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
     private modalService: NgbModal,
     private FB: FormBuilder,
     private alertSvc: AlertService,
@@ -102,7 +98,6 @@ export class NewsAdminComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //Formatea la fecha de los posts a un formato legible
   formatDate() {
     this.postsAux = this.posts.forEach((element) => {
       element.fecha = new Date(element.fecha)
@@ -111,7 +106,7 @@ export class NewsAdminComponent implements OnInit {
     });
   }
 
-  abrirModalPost(post) {
+  openModalPost(post) {
     this.showPost = post;
     this.modalService.open(this.modalPost);
   }
@@ -129,9 +124,6 @@ export class NewsAdminComponent implements OnInit {
 
   editPost(post) {
     this.modalService.dismissAll();
-
-    // this.imgResultAfterCompress = post.img;
-
     this.post.controls.titulo.setValue(post.titulo);
     this.post.controls.subtitulo.setValue(post.subtitulo);
     this.post.controls.contenido.setValue(post.contenido);
@@ -141,9 +133,7 @@ export class NewsAdminComponent implements OnInit {
 
   updatePost() {
     this.postFinal = this.post.value;
-
     this.fire.UpdatePost(this.showPost.id, 'posts', this.postFinal);
-
     this.post.reset();
     this.filePath = null;
     this.modalService.dismissAll();
@@ -152,9 +142,7 @@ export class NewsAdminComponent implements OnInit {
 
   imagePreview(e) {
     const file = (e.target as HTMLInputElement).files[0];
-
     this.photo = (e.target as HTMLInputElement).files[0];
-
     this.post.patchValue({
       img: file,
     });
@@ -179,10 +167,8 @@ export class NewsAdminComponent implements OnInit {
       this.imageCompress
         .compressFile(image, orientation, 50, 40)
         .then((result) => {
-
           this.imgResultAfterCompress = result;
           this.seleccionoFoto = false;
-      
         });
     });
   }

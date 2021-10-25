@@ -1,16 +1,13 @@
 import {
   Component,
-  OnInit, 
+  OnInit,
   Output,
   EventEmitter,
   ViewChild,
   TemplateRef,
-  ViewContainerRef,
   HostListener,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from 'src/app/services/auth.service';
 import { FireService } from 'src/app/services/fire.service';
 
 @Component({
@@ -31,10 +28,7 @@ export class NewsComponent implements OnInit {
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
 
-  constructor(
-    private fire: FireService,
-    private modalService: NgbModal,
-  ) {
+  constructor(private fire: FireService, private modalService: NgbModal) {
     if (window.screen.width > 200) {
       this.test = 1;
     }
@@ -59,10 +53,7 @@ export class NewsComponent implements OnInit {
       });
 
       this.formatDate();
-
     });
-
-
   }
 
 <<<<<<< HEAD
@@ -77,12 +68,12 @@ export class NewsComponent implements OnInit {
     });
   }
 
-  abrirModalPost(post) {
+  openModalPost(post) {
     this.showPost = post;
     this.modalService.open(this.modalPost);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -96,6 +87,4 @@ export class NewsComponent implements OnInit {
       this.test = 3;
     }
   }
-
-
 }

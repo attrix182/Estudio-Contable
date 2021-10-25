@@ -1,13 +1,30 @@
-<nav class="navbar  navbar-expand-lg navbar-dark" id="navbar" ngxHideOnScroll [propertyUsedToHide]="'top'"
-  [valueWhenHidden]="'-100px'" [valueWhenShown]="'0px'">
-  <div class="row">
-
-  </div>
+<nav
+  class="navbar navbar-expand-lg navbar-dark"
+  id="navbar"
+  ngxHideOnScroll
+  [propertyUsedToHide]="'top'"
+  [valueWhenHidden]="'-100px'"
+  [valueWhenShown]="'0px'"
+>
+  <div class="row"></div>
   <div class="container">
     <div class="nav__logo" #nav__logo>
-      <a pageScroll [pageScrollDuration]="500" class="navbar-brand" href="#home">
-        <img id=nav__logo-img #nav__logo_img src="../../../assets/logoCortadoOriginal.png" alt="logo sivila " srcset="">
-        <label id="nav__logo-label" #nav__logo_label>Logeado como: {{user.email}}</label>
+      <a
+        pageScroll
+        [pageScrollDuration]="500"
+        class="navbar-brand"
+        href="#home"
+      >
+        <img
+          id="nav__logo-img"
+          #nav__logo_img
+          src="../../../assets/logoCortadoOriginal.png"
+          alt="logo sivila "
+          srcset=""
+        />
+        <label id="nav__logo-label" #nav__logo_label
+          >Logeado como: {{ user.email }}</label
+        >
       </a>
     </div>
     <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -21,47 +38,72 @@
   </div>
 </nav>
 
-
-<br><br>
-<br><br>
-
+<br /><br />
+<br /><br />
 
 <div align="center" class="container">
-
   <app-news-admin></app-news-admin>
 
-  <button class="btn btn-primary btn-block mt-3" (click)="writePost()">Crear Post</button>
-
+  <button class="btn btn-primary btn-block mt-3" (click)="writePost()">
+    Crear Post
+  </button>
 </div>
 
-
-
 <ng-template #modalPost let-modal>
-  <form [formGroup]="post">
+  <form [formGroup]="formGroup">
     <div class="modal-body">
       <div class="banner">
-        <div *ngIf="this.imgResultAfterCompress && this.imgResultAfterCompress !== ''">
-          <img [src]="imgResultAfterCompress" [alt]="post.value.name" class="imgCover">
+        <div
+          *ngIf="
+            this.imgResultAfterCompress && this.imgResultAfterCompress !== ''
+          "
+        >
+          <img
+            [src]="imgResultAfterCompress"
+            [alt]="formGroup.value.name"
+            class="imgCover"
+          />
         </div>
         <button id="banner-upload" (click)="compressFile()" hidden></button>
-        <!-- <input type="file" accept="image/*" id="banner-upload" (change)="imagePreview($event)"  > -->
-        <label for="banner-upload" class="banner-upload-btn"><i class="fa fa-upload"></i></label>
+
+        <label for="banner-upload" class="banner-upload-btn"
+          ><i class="fa fa-upload"></i
+        ></label>
       </div>
-      <textarea type="text" class="text-center mt-1 title" cols="1" rows="1" formControlName="titulo"
-        placeholder="Titulo..."></textarea>
-      <textarea type="text" class="text-left subtitle" cols="1" rows="1" formControlName="subtitulo"
-        placeholder="Subitulo..."></textarea>
-      <textarea type="text" class="article" cols="1" rows="5" formControlName="contenido"
-        placeholder="Empiece a escribir..."></textarea>
+      <textarea
+        type="text"
+        class="text-center mt-1 title"
+        cols="1"
+        rows="1"
+        formControlName="title"
+        placeholder="Titulo..."
+      ></textarea>
+      <textarea
+        type="text"
+        class="text-left subtitle"
+        cols="1"
+        rows="1"
+        formControlName="subtitle"
+        placeholder="Subitulo..."
+      ></textarea>
+      <textarea
+        type="text"
+        class="article"
+        cols="1"
+        rows="5"
+        formControlName="content"
+        placeholder="Empiece a escribir..."
+      ></textarea>
     </div>
 
     <div class="blog-options">
-      <button class="btn dark publish-btn success" [disabled]="seleccionoFoto || post.invalid"
-        (click)="addPost()">Publicar</button>
-      <!-- <button class="btn dark publish-btn success" *ngIf="!post.invalid" (click)="addPost()">Publicar</button> -->
+      <button
+        class="btn dark publish-btn success"
+        [disabled]="selectPhoto || formGroup.invalid"
+        (click)="addPost()"
+      >
+        Publicar
+      </button>
     </div>
   </form>
 </ng-template>
-
-<!-- <img *ngIf="imgResultBeforeCompress" [src]="imgResultBeforeCompress" alt="" style="width: 100px;">
-<img *ngIf="imgResultAfterCompress" [src]="imgResultAfterCompress" alt="" style="width: 100px;"> -->

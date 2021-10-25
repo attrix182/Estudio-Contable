@@ -1,25 +1,23 @@
 carousel {
   position: relative;
   z-index: 1;
-} 
-
-
-.card{
-    width: 300px;
-    height: 360px;
-    margin: auto;
-    border-radius: 5px !important;
-
 }
 
-.title{
-    font-size: 1.6rem;
+.card {
+  width: 300px;
+  height: 360px;
+  margin: auto;
+  border-radius: 5px !important;
 }
-.subtitle{
-    font-size: 1.1rem;
+
+.title {
+  font-size: 1.6rem;
 }
-.text{
-    font-size: .9rem;
+.subtitle {
+  font-size: 1.1rem;
+}
+.text {
+  font-size: 0.9rem;
 }
 .carousel-cell {
   margin: 0;
@@ -36,9 +34,9 @@ carousel {
   transition: all 0.3s ease;
 }
 
-.img{
-    background-position: center;
-    background-size: contain;
-    height: 200px;
-    width: 100%;
+.img {
+  background-position: center;
+  background-size: contain;
+  height: 200px;
+  width: 100%;
 }
