@@ -84,32 +84,6 @@ export class FireService {
   return this.cloudFireStore.collection(collectionName).doc(id).update({titulo: post.titulo, subtitulo: post.subtitulo, contenido: post.contenido});
 
 }
-/*     if (post.img) {
-      const filePath = `/usuarios/${post.id}/image.jpeg`;
-      const ref = this.storage.ref(filePath).putString(post.img, 'base64', { contentType: 'image/jpeg' }).then(() => {
-        let storages = firebase.default.storage();
-        let storageRef = storages.ref();
-        let spaceRef = storageRef.child(filePath);
-
-        spaceRef.getDownloadURL().then((url) => {
-          this.fotoCargada = url;
-          this.fotoCargada = `${this.fotoCargada}`;
-
-          post.img = this.fotoCargada;
-
-          return this.cloudFireStore.collection(collectionName).doc(id).update({ ...post });
-
-        });
-      });
-
-    }
-    else {
-      return this.cloudFireStore.collection(collectionName).doc(id).update({titulo: post.titulo, subtitulo: post.subtitulo, contenido: post.contenido});
-    }
-    return 0;
-  } */
-
-  
 
 
 }
