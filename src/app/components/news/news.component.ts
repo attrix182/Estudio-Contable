@@ -56,10 +56,6 @@ export class NewsComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6dc37a41d78c4f8b8a367c779faaf46b12d166bc
   formatDate() {
     this.postsAux = this.posts.forEach((element) => {
       element.fecha = new Date(element.fecha)
