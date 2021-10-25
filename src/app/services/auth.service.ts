@@ -33,7 +33,7 @@ export class AuthService {
         user.clave
       );
     } catch (error) {
-      console.log('Error, en registro');
+
       return error;
     }
   }

@@ -36,14 +36,14 @@ export class ContactComponent extends BaseFormAbstract implements OnInit {
       )
       .then(
         (result: EmailJSResponseStatus) => {
-          console.log(result.text);
+   
           this.loading = false;
           this.formGroup.reset();
         },
         (error) => {
           this.loading = false;
           this.formGroup.reset();
-          console.log(error.text);
+
         }
       );
 
