@@ -1,10 +1,11 @@
 <h3 class="mb-5 text-white text-center noDrag">Contacto</h3>
 <div class="row">
   <section class="mb-5 col-12 col-lg-6">
-    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+    <form  (ngSubmit)="onSubmit($event)" [formGroup]="formGroup">
       <div class="form-group">
         <label for="exampleInputEmail1">Nombre Completo</label>
         <input
+        name="fullname"
           type="text"
           class="form-control"
           id="fullname"
@@ -19,6 +20,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Correo Electronico</label>
         <input
+        name="email"
           type="email"
           class="form-control"
           id="email"
@@ -33,6 +35,7 @@
       <div class="form-group">
         <label for="subject">Asunto</label>
         <input
+        name="subject"
           type="text"
           class="form-control"
           id="subject"
@@ -47,6 +50,7 @@
       <div class="form-group">
         <label for="comment">Consulta</label>
         <textarea
+        name="comment"
           type="text-area"
           class="form-control"
           id="comment"

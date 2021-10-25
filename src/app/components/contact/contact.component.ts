@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { BaseFormAbstract } from 'src/app/shared/base-form-abstract';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 @Component({
   selector: 'app-contact',
@@ -24,12 +25,29 @@ export class ContactComponent extends BaseFormAbstract implements OnInit {
     this.initForm();
   }
 
-  onSubmit() {
-    this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-      this.formGroup.reset();
-    }, 3000);
+  onSubmit(e: Event) {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        'service_jxv2lv9',
+        'template_ig10kwf',
+        e.target as HTMLFormElement,
+        'user_TzNNCSl7rLWpOHXprpzpl'
+      )
+      .then(
+        (result: EmailJSResponseStatus) => {
+          console.log(result.text);
+          this.loading = false;
+          this.formGroup.reset();
+        },
+        (error) => {
+          this.loading = false;
+          this.formGroup.reset();
+          console.log(error.text);
+        }
+      );
+
+
   }
 
   initForm() {
