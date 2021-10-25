@@ -52,7 +52,7 @@ import { SobreNosotrosComponent } from './pages/sections/sobre-nosotros/sobre-no
     
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgxHideOnScrollModule,
     NgxPageScrollModule,

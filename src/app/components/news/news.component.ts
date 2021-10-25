@@ -52,11 +52,6 @@ export class NewsComponent implements OnInit {
   }
 
 
-
-
-
-
-
   formatDate() {
     this.postsAux = this.posts.forEach(element => {
       element.fecha = new Date(element.fecha).toLocaleDateString().concat(' a las ', new Date(element.fecha).toLocaleTimeString());
@@ -67,15 +62,7 @@ export class NewsComponent implements OnInit {
 
   orderPostsByDate() {
 
-    this.posts.sort((a, b) => {
-      if (a.fecha > b.fecha) {
-        return -1;
-      }
-      if (a.fecha < b.fecha) {
-        return 1;
-      }
-      return 0;
-    });
+    this.posts.sort((a, b) => a.fechas < b.fechas);
 
   }
 
