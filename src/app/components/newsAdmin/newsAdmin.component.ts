@@ -84,12 +84,6 @@ export class NewsAdminComponent implements OnInit {
         }
         return 0;
       });
-
-      this.formatDate();
-
-      this.orderPostsByDate();
-
-      console.log(this.posts);
     });
 
     this.post = new FormGroup({
@@ -118,17 +112,6 @@ export class NewsAdminComponent implements OnInit {
     });
   }
 
-  orderPostsByDate() {
-    this.posts.sort((a, b) => {
-      if (a.fecha > b.fecha) {
-        return -1;
-      }
-      if (a.fecha < b.fecha) {
-        return 1;
-      }
-      return 0;
-    });
-  }
 
 
   abrirModalPost(post) {
