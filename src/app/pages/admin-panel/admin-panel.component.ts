@@ -120,13 +120,13 @@ export class AdminPanelComponent extends BaseFormAbstract implements OnInit {
 
   setErrorMessages() {
     this.errroMessages = {
-      title: {
+      titulo: {
         required: 'El titulo es obligatorio',
       },
-      subtitle: {
+      subtitulo: {
         required: 'El subtitulo es obligatorio',
       },
-      content: {
+      contenido: {
         required: 'El contenido es obligatorio',
       },
     };
@@ -134,16 +134,16 @@ export class AdminPanelComponent extends BaseFormAbstract implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup({
-      title: new FormControl(''),
-      subtitle: new FormControl(''),
-      content: new FormControl(''),
+      titulo: new FormControl(''),
+      subtitulo: new FormControl(''),
+      contenido: new FormControl(''),
       img: new FormControl(''),
     });
 
     this.formGroup = this.FB.group({
-      title: ['', Validators.required],
-      subtitle: ['', Validators.required],
-      content: ['', Validators.required],
+      titulo: ['', Validators.required],
+      subtitulo: ['', Validators.required],
+      contenido: ['', Validators.required],
       img: [null],
       filename: [''],
     });

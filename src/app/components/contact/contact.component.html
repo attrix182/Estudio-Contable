@@ -14,7 +14,7 @@
           [class]="isValidField('fullname')"
         />
         <span *ngIf="showError('fullname')" class="invalid-feedback">
-          {{ getErrorMessages("fullname") }}
+          {{ getErrorMessages('fullname') }}
         </span>
       </div>
       <div class="form-group">
@@ -29,7 +29,7 @@
           [class]="isValidField('email')"
         />
         <span *ngIf="showError('email')" class="invalid-feedback">
-          {{ getErrorMessages("email") }}
+          {{ getErrorMessages('email') }}
         </span>
       </div>
       <div class="form-group">
@@ -44,7 +44,7 @@
           [class]="isValidField('subject')"
         />
         <span *ngIf="showError('subject')" class="invalid-feedback">
-          {{ getErrorMessages("subject") }}
+          {{ getErrorMessages('subject') }}
         </span>
       </div>
       <div class="form-group">
@@ -61,30 +61,16 @@
           rows="6"
         ></textarea>
         <span *ngIf="showError('comment')" class="invalid-feedback">
-          {{ getErrorMessages("comment") }}
+          {{ getErrorMessages('comment') }}
         </span>
       </div>
-      <button
-        *ngIf="!loading"
-        type="submit"
-        class="btn btn-primary btn-block mb-4"
-        [disabled]="formGroup.invalid"
-      >
+      <button *ngIf="!loading" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="formGroup.invalid">
         Enviar
       </button>
-      <button
-        *ngIf="loading"
-        type="submit"
-        class="btn btn-primary btn-block mb-4"
-        disabled
-      >
+      <button *ngIf="loading" type="submit" class="btn btn-primary btn-block mb-4" disabled>
         <div class="d-flex align-items-center">
           <strong>Enviando...</strong>
-          <div
-            class="spinner-border ml-auto"
-            role="status"
-            aria-hidden="true"
-          ></div>
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
         </div>
       </button>
     </form>
@@ -127,9 +113,7 @@
                     />
                   </g>
                 </g></svg
-              ><span style="margin: 10px"
-                >25 de Mayo 260, Piso 1 depto 7</span
-              ></a
+              ><span style="margin: 10px">Av 9 de Julio, Piso 3</span></a
             >
           </li>
           <li>
@@ -178,7 +162,7 @@
                     />
                   </g>
                 </g></svg
-              ><span style="margin: 10px" >+54 2901 31123123</span></a
+              ><span style="margin: 10px">+54 0000 11111111</span></a
             >
           </li>
           <li>
@@ -208,7 +192,7 @@
                     />
                   </g>
                 </g></svg
-              ><span style="margin: 10px">contacto@sivilaanaliayasociados.com.ar</span></a
+              ><span style="margin: 10px">contacto@ejemplo.com.ar</span></a
             >
           </li>
           <li class="sub-menu">
@@ -254,7 +238,7 @@
                   </g>
                 </g>
               </svg>
-              <span style="margin: 10px">sivilayasociados.com.ar</span></a
+              <span style="margin: 10px">https://qa-estudiocontable.netlify.app/</span></a
             >
           </li>
         </ul>
@@ -270,7 +254,7 @@
             scrolling="no"
             marginheight="0"
             marginwidth="0"
-            src="https://maps.google.com/maps?width=100%25&amp;height=200&amp;hl=en&amp;q=25%20de%20Mayo%20260%20V9410%20DFF%20Tierra%20del%20Fuego+(Sivila%20y%20Asociados)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            src="https://maps.google.com/maps?q=9%20de%20julio%2020%20caba&t=&z=17&ie=UTF8&iwloc=&output=embed"
           >
           </iframe>
         </div>
